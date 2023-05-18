@@ -2,14 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
-import { toast } from 'react-toastify';
-import Navbar from '../Shared/Navbar/Navbar';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Register = () => {
 
-    const { createAcctWithEmail, setUser, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, setRootError, updatePhotoAndUrl } = useContext(AuthContext)
+    const { createAcctWithEmail, setUser, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, setRootError } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const [nameErr, setNameErr] = useState('')
@@ -23,6 +22,7 @@ const Register = () => {
         const email = e.target.email.value
         const password = e.target.password.value
 
+        // validation portion
         if (!name) {
             e.target.name.focus()
             setUrl('')
@@ -71,21 +71,28 @@ const Register = () => {
         }
 
 
+    // Photo and url updating function
+    const updatePhotoAndUrl = (user) => {
+        return updateProfile(user, { displayName: name, photoURL: Url })
+    }
+
+
         // creating user with email
         createAcctWithEmail(email, password)
             .then(res => {
-                const loggedUser = res.user;
                 toast.info('registration success')
+                const loggedUser = res.user;
+                // calling the photo and url updating function
+                updatePhotoAndUrl(loggedUser)
+                    .then(() => {
+                        toast.success('success')
+                    })
+                    .catch((error) => {
+                        console.log(error.message);
+                        setRootError(error.message);
+                    });
                 setUser(loggedUser);
                 navigate(location?.state?.pathname || '/', { replace: true })
-                // calling the photo and url updating function
-                updatePhotoAndUrl(res.user)
-                    .then(() => {
-
-                    }).catch((error) => {
-                        setRootError(error.message);
-
-                    });
             })
             .catch(err => {
                 setRootError(err.message);
@@ -93,9 +100,11 @@ const Register = () => {
             })
 
 
-
     }
-    //controlled form function
+
+
+
+    //password validation with regex
     const handlePassword = (e) => {
         const passwordInput = e.target.value
 
@@ -110,7 +119,7 @@ const Register = () => {
         }
         setPassword(e.target.value)
     }
-
+    //email validation with regex
     const handleEmail = (e) => {
         const emailInput = e.target.value
         setEmail(emailInput)
@@ -140,6 +149,7 @@ const Register = () => {
             {/* registration form part */}
 
             <div className='container md:w-1/2 mx-auto'>
+
                 <form onSubmit={handleSubmit} className="bg-slate-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-blue-400">
                     <div className='text-center mb-6'>
                         <h2 className='font-bold text-amber-700 text-2xl md:text-5xl'>Register Here</h2>
@@ -201,9 +211,9 @@ const Register = () => {
                     </div>
 
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Register</button>
-
                     <p className='my-3'>Already have an account?<Link className='text-red-800 font-bold ml-2' to='/login'>Log In</Link></p>
 
+                    <ToastContainer />
 
                 </form>
             </div>

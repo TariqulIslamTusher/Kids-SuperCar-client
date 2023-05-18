@@ -22,10 +22,7 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value
 
-
-
-
-
+        // Form validation
         if (!email) {
             setPError('')
             setEmailError('Email can not be empty')
@@ -49,13 +46,15 @@ const Login = () => {
             setPError('')
         }
 
-
+        //Login with email function by context api
         LoginWithEmail(email, password)
             .then(res => {
                 toast.success('login success')
                 const emailUser = res.user
                 setUser(emailUser);
                 navigate(location.state?.pathname || '/', { replace: true })
+                event.target.password.value = ''
+                event.target.email.value = ""
             })
             .catch(err => {
                 setRootError(err.message);
@@ -78,9 +77,9 @@ const Login = () => {
 
             })
             .catch(err => {
-                console.log(err.message)
                 setRootError(err.message)
                 toast.error(rootErr)
+                console.log(err.message)
             })
     }
 
