@@ -3,7 +3,7 @@ import React from 'react';
 const HomeBanner = () => {
     return (
         <div className="flex flex-col md:flex-row">
-            <div className="carousel w-full md:w-2/3">
+            <div className="carousel w-full h-[500px] object-cover md:w-2/3 rounded-xl">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://media.istockphoto.com/id/1136542784/photo/many-colored-toy-cars-on-multicolored-background.jpg?s=612x612&w=0&k=20&c=QAKHJEV0HmmzkAToEoAX4IehTUxdWKCbvS7RyoL7zx0=" className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
