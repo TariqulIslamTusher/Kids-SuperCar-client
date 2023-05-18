@@ -1,11 +1,14 @@
 import React from 'react';
 import HomeBanner from './HomeBanner';
+import Category from './Category';
 
 const Home = () => {
     return (
-        <div className='container mx-auto'>
+        <div className='bg-gradient-to-b from-cyan-300 to-cyan-800'>
             <HomeBanner></HomeBanner>
-            This is home of the site
+            <div className='container mx-auto'>
+                
+            </div>
         </div>
     );
 };
