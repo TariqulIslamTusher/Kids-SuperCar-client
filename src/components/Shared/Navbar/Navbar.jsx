@@ -31,8 +31,9 @@ const Navbar = () => {
                         <li><a>Home</a></li>
                         <li><a>Blogs</a></li>
                         <li><a>All Toys</a></li>
-                        {user ? <>
-                            <li className='sm:hidden'><a>My Toys</a></li>
+                        {user ? 
+                        <>
+                            <li><a>My Toys</a></li>
                             <li><a>Add Toys</a></li>
                         </> : ''}
                         <li>
@@ -49,7 +50,7 @@ const Navbar = () => {
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-12 rounded-full" data-tooltip-id="my-tooltip"
                             data-tooltip-content={user ? user.displayName : 'Add User'}>
-                            <Tooltip id="my-tooltip" ></Tooltip>
+                            <Tooltip className='z-30' id="my-tooltip" ></Tooltip>
                             <img src={user ? user.photoURL : 'https://cdn-icons-png.flaticon.com/512/16/16363.png?w=740&t=st=1684413586~exp=1684414186~hmac=099d827d099e8fcd0fd10f202d63209149e7afa823db4512bc04a76d8b9e8761'} alt="" />
                         </div>
                     </label>
