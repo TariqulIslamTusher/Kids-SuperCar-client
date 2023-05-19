@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import MyTableRows from './MyTableRows';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Loader from '../../Loader/Loader';
 
 const MyToysTable = () => {
     const {user} = useContext(AuthContext)
@@ -57,12 +58,7 @@ const MyToysTable = () => {
     }
 
     if (!products) {
-        return (
-            <div className='text-center h-[300px]'>
-                <div className="radial-progress animate-spin " style={{ "--value": "70", "--size": "12rem", "--thickness": "2px" }}>
-                </div>
-            </div>
-        )
+        return <Loader></Loader>
     }
 
     return (
@@ -88,13 +84,7 @@ const MyToysTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* row 1 */}
-
-                    {/* {
-                        products.length === 0? <>
-                        <h2 className="heading-text">No data added</h2>
-                        </> : ''
-                    } */}
+             
 
                     {
                         products.map((product, i) => <MyTableRows key={i} product={product} handleDelete={handleDelete} i={i}></MyTableRows>)
@@ -102,7 +92,9 @@ const MyToysTable = () => {
 
 
                 </tbody>
-                {/* foot */}
+
+
+                
                 {
                     products.length > 20 ? <>
                         <tfoot>

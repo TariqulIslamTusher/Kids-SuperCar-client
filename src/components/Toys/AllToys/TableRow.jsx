@@ -35,7 +35,7 @@ const TableRow = ({ product, i }) => {
             </td>
             <td>{sellerName}</td>
             <td>{subCategory}</td>
-            <td>{price}</td>
+            <td>${price}</td>
             <td>{availableQty}</td>
             <th>
                 <Link to='/viewDetails'><button onClick={() => handleDetails(_id)} className="btn btn-ghost btn-xs">details</button></Link>

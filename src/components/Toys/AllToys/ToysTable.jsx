@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Loader from '../../Loader/Loader';
 
 const ToysTable = () => {
-    const {loader} = useContext(AuthContext)
+
     const [products, setProducts] = useState('')
 
     useEffect(() => {
@@ -19,9 +19,6 @@ const ToysTable = () => {
 
     if (!products) {
         return <Loader></Loader>
-    }
-    if(products.length===0){
-        return <h3>no data found</h3>
     }
 
     return (

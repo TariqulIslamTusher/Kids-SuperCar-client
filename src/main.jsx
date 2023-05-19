@@ -16,12 +16,14 @@ import MyToys from './components/Toys/MyToys/MyToys';
 import Blogs from './components/Pages/Blogs';
 import PrivateRoutes from './components/Pages/PrivateRoutes/PrivateRoutes';
 import ViewDetails from './components/Toys/ViewDetails/ViewDetails';
+import ErrorPage from './components/Pages/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainOutlet></MainOutlet>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -42,6 +44,7 @@ const router = createBrowserRouter([
       {
         path: '/viewDetails',
         element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>
+       
       },
       {
         path: "/allToys",
