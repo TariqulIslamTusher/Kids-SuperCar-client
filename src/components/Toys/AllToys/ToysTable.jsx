@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TableRow from './TableRow';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Loader from '../../Loader/Loader';
 
 const ToysTable = () => {
+    const {loader} = useContext(AuthContext)
     const [products, setProducts] = useState('')
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('http://localhost:4000/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
@@ -15,14 +18,10 @@ const ToysTable = () => {
 
 
     if (!products) {
-        return (
-            <div className='text-center h-[300px]'>
-
-                <div className="radial-progress animate-spin " style={{ "--value": "70", "--size": "12rem", "--thickness": "2px" }}>
-                </div>
-            </div>
-
-        )
+        return <Loader></Loader>
+    }
+    if(products.length===0){
+        return <h3>no data found</h3>
     }
 
     return (

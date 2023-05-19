@@ -7,7 +7,7 @@ const MyToysTable = () => {
     const {user} = useContext(AuthContext)
     const [products, setProducts] = useState([])
 
-    const url = `http://localhost:5000/products?email=${user?.email}`
+    const url = `http://localhost:4000/addedProducts?email=${user?.email}`
 
     useEffect(() => {
         fetch(url)
@@ -30,7 +30,7 @@ const MyToysTable = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/products/${id}`, {
+                fetch(`http://localhost:4000/products/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

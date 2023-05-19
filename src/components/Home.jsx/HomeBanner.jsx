@@ -5,14 +5,14 @@ const HomeBanner = () => {
         <div>
             <div className="carousel h-[600px] object-cover relative">
                 <div id="slide1" className="carousel-item relative w-full">
-                    <img src="https://media.istockphoto.com/id/1136542784/photo/many-colored-toy-cars-on-multicolored-background.jpg?s=612x612&w=0&k=20&c=QAKHJEV0HmmzkAToEoAX4IehTUxdWKCbvS7RyoL7zx0=" className="w-full" />
+                    <img src="https://media.istockphoto.com/id/1276490353/photo/blue-car-hits-to-yellow-car-from-behind.jpg?s=612x612&w=0&k=20&c=gG8ymsiyNmCSNmEPV0vFoUH0Umh7xS6CRCkGYfZ7z38=" className="w-full" />
                     <div className="absolute flex gap-5 transform bottom-10 right-10">
                         <a href="#slide4" className="btn btn-circle btn-lg opacity-75 text-2xl font-bold hover:opacity-100">❮</a>
                         <a href="#slide2" className="btn btn-circle btn-lg opacity-75 text-2xl font-bold hover:opacity-100">❯</a>
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
-                    <img src="https://media.istockphoto.com/id/1276490353/photo/blue-car-hits-to-yellow-car-from-behind.jpg?s=612x612&w=0&k=20&c=gG8ymsiyNmCSNmEPV0vFoUH0Umh7xS6CRCkGYfZ7z38=" className="w-full" />
+                    <img src="https://media.istockphoto.com/id/1136542784/photo/many-colored-toy-cars-on-multicolored-background.jpg?s=612x612&w=0&k=20&c=QAKHJEV0HmmzkAToEoAX4IehTUxdWKCbvS7RyoL7zx0=" className="w-full" />
                     <div className="absolute flex gap-5 transform bottom-10 right-10">
                         <a href="#slide1" className="btn btn-circle btn-lg opacity-75 text-2xl font-bold hover:opacity-100">❮</a>
                         <a href="#slide3" className="btn btn-circle btn-lg opacity-75 text-2xl font-bold hover:opacity-100">❯</a>

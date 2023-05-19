@@ -58,7 +58,7 @@ const AddToys = () => {
 
 
         // send data to the server 
-        fetch('http://localhost:5000/addProduct', {
+        fetch('http://localhost:4000/addProduct', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -120,7 +120,7 @@ const AddToys = () => {
                             type="text"
                             id="sellerName"
                             name="sellerName"
-                            value={user? user.displayName: ''}
+                            placeholder={user? user.displayName: ''}
                             required
                         />
                     </div>
@@ -135,7 +135,7 @@ const AddToys = () => {
                         type="email"
                         id="sellerEmail"
                         name="sellerEmail"
-                        value={user? user.email: ''}
+                        placeholder={user? user.email: ''}
                         required
 
                     />

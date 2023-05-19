@@ -10,6 +10,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('')
+    const [singleData, setSingleData] = useState('')
 
     // controlled form making state
     const [password, setPassword] = useState("")
@@ -50,6 +51,7 @@ const AuthProvider = ({ children }) => {
 
 
     const authInfo = {
+        singleData, setSingleData,
         user, setUser, loader,
         setLoader, password,
         setPassword, passwordError,
