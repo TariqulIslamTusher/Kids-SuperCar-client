@@ -149,11 +149,11 @@ const Login = () => {
 
                 </Player>
             </div>
-            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/2">
+            <div className="bg-white shadow-md h-full rounded px-8 pt-6 pb-8 mb-4 w-1/2">
                 <ToastContainer />
-                <form onSubmit={handleLogin} className="bg-slate-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-blue-400">
+                <form onSubmit={handleLogin} >
                     <div className='text-center mb-6'>
-                        <h2 className='font-bold text-green-700 text-5xl'>Log In</h2>
+                        <h2 className='font-bold heading-text'>Log In</h2>
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
