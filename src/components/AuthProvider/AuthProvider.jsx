@@ -50,7 +50,12 @@ const AuthProvider = ({ children }) => {
 
 
     const authInfo = {
-        user, setUser, loader, setLoader, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, rootErr, setRootError,
+        user, setUser, loader,
+        setLoader, password,
+        setPassword, passwordError,
+        setPError, emailError,
+        setEmailError,email, setEmail,
+        rootErr, setRootError,
         createAcctWithEmail,
         LoginWithEmail,
         signOutUser,

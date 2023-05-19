@@ -33,7 +33,7 @@ const Navbar = () => {
                        <Link to='/allToys'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>All Toys</li></Link>
                         {user ? 
                         <>
-                           <Link> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>My Toys</li></Link>
+                           <Link to='/myToys'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>My Toys</li></Link>
                             <Link to='/addToys'><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Add Toys</li></Link>
                         </> : ''}
                         <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>
@@ -61,7 +61,7 @@ const Navbar = () => {
                         <Link><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Blogs</li></Link>
                         <Link to='/allToys'><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>All Toys</li></Link>
                         {user ? <>
-                            <Link><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200' >My Toys</li></Link>
+                            <Link to='/myToys'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>My Toys</li></Link>
                             <Link to='/addToys'><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Add Toys</li></Link>
                         </> : ''}
                         <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>

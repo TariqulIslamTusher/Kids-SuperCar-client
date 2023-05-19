@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2'
 
 const AddToys = () => {
 
@@ -68,6 +68,12 @@ const AddToys = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'User Added',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
                 // if(data.insertedId){
                 //     alert('data added succecfully')
                 // }
