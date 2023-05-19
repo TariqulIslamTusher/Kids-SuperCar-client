@@ -120,7 +120,7 @@ const AddToys = () => {
                             type="text"
                             id="sellerName"
                             name="sellerName"
-                            value={user.displayName}
+                            value={user? user.displayName: ''}
                             required
                         />
                     </div>
@@ -135,7 +135,7 @@ const AddToys = () => {
                         type="email"
                         id="sellerEmail"
                         name="sellerEmail"
-                        value={user.email}
+                        value={user? user.email: ''}
                         required
 
                     />

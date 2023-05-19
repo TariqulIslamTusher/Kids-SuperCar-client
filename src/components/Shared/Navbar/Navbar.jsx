@@ -8,7 +8,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
-    
+    console.log(user);
     const handleLogOut = () => {
         signOutUser()
     }
@@ -29,7 +29,7 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end hidden lg:block">
                     <ul tabIndex={0} className="flex gap-5 items-center font-bold ">
                        <Link> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Home</li></Link>
-                       <Link> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Blogs</li></Link>
+                       <Link to='/blog'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Blogs</li></Link>
                        <Link to='/allToys'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>All Toys</li></Link>
                         {user ? 
                         <>
@@ -58,7 +58,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu lg:hidden dropdown-content divide-y mt-3 p-2 shadow bg-base-100 rounded-box w-72 md:w-72 text-lg">
                         <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'><h2 className='text-xl font-semibold'>{user?.displayName}</h2></li>
                         <Link><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Home</li></Link>
-                        <Link><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Blogs</li></Link>
+                        <Link to='/blog'><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Blogs</li></Link>
                         <Link to='/allToys'><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>All Toys</li></Link>
                         {user ? <>
                             <Link to='/myToys'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>My Toys</li></Link>

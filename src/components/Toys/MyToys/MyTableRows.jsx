@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MyTableRows = ({ product, i, handleDelete }) => {
@@ -32,7 +33,7 @@ const MyTableRows = ({ product, i, handleDelete }) => {
                 <td>{price}</td>
                 <td>{availableQty}</td>
                 <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <Link to='/viewDetails'><button className="btn btn-ghost btn-xs">details</button></Link>
                 </th>
 
             </tr>

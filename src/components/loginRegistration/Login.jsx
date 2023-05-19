@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { app } from '../../firebase/firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 
 const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider()
-const githubProvider = new GithubAuthProvider()
+
 
 const Login = () => {
 
@@ -83,31 +83,7 @@ const Login = () => {
             })
     }
 
-    // handle github function
-    const handleGithub = () => {
-        signInWithPopup(auth, githubProvider)
-            .then((res) => {
-                const loggedUser = res.user
-                setUser(loggedUser);
-                toast.success('Login Successed')
-                navigate(location.state?.pathname || '/', { replace: true })
-            })
-            .catch(err => {
-                console.log(err.message)
-                setRootError(err.message)
-                toast.error(rootErr)
-            })
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add your login logic here
-        handleGoogleLogin(googleProvider)
-            .then(result => {
-                console.log(result.user);
-            })
-            .catch(err => console.log(err.message))
-    };
-
+    //  this function is used for instant error giving system
     const handleEmail = (e) => {
         const emailInput = e.target.value
         setEmail(emailInput)
@@ -122,6 +98,7 @@ const Login = () => {
         }
     }
 
+    //  this function is used for instant error giving system
     const handlePassword = (e) => {
         const passwordInput = e.target.value
 
@@ -191,17 +168,13 @@ const Login = () => {
                         <p >New Here?</p>
                         <Link className='text-red-800 font-bold' to='/register' state={location.state}>Register now</Link>
                     </div>
-                    <div className='flex gap-3 flex-col md:flex-row items-center'>
 
-                        <div onClick={handleGoogle} className='cursor-pointer flex items-center gap-3 rounded-xl border-2 bg-white shadow-lg p-3 text-[#ff781e] text-2xl'>
-                            <FaGoogle className='mx-auto'></FaGoogle>
-                            <p className='text-sm'>Log in with Google</p>
-                        </div>
-                        <div onClick={handleGithub} className='rounded-xl cursor-pointer flex items-center gap-3 border-2 bg-white shadow-lg p-3 text-slate-700 text-2xl'>
-                            <FaGithub className='mx-auto'></FaGithub>
-                            <p className='text-sm'>Log in with Github</p>
-                        </div>
+
+                    <div onClick={handleGoogle} className='cursor-pointer w-full md:w-1/2 btn flex items-center gap-3 rounded-xl border-2 bg-white shadow-lg p-3 text-red-500 text-2xl'>
+                        <FaGoogle></FaGoogle>
+                        <p className='text-sm'>Log in with Google</p>
                     </div>
+
                 </form>
             </div>
         </div>

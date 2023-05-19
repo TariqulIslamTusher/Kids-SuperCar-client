@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import MyTableRows from './MyTableRows';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const MyToysTable = () => {
+    const {user} = useContext(AuthContext)
+    const [products, setProducts] = useState([])
 
-    const [products, setProducts] = useState('')
+    const url = `http://localhost:5000/products?email=${user?.email}`
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(url)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
-                console.log(data);
             })
     }, [])
 
@@ -88,11 +90,11 @@ const MyToysTable = () => {
                 <tbody>
                     {/* row 1 */}
 
-                    {
+                    {/* {
                         products.length === 0? <>
                         <h2 className="heading-text">No data added</h2>
                         </> : ''
-                    }
+                    } */}
 
                     {
                         products.map((product, i) => <MyTableRows key={i} product={product} handleDelete={handleDelete} i={i}></MyTableRows>)

@@ -9,7 +9,7 @@ const MainOutlet = () => {
             <div className=' shadow-xl'>
                 <Navbar></Navbar>
             </div>
-            <div className='mx-auto'>
+            <div className='mx-auto min-h-[calc(100vh-350px)]'>
                 <Outlet></Outlet>
             </div>
             <div className=' bg-neutral text-neutral-content'>

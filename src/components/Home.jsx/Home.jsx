@@ -5,7 +5,7 @@ import HomeGalary from './HomeGalary';
 
 const Home = () => {
     return (
-        <div>
+        <div className='bg-slate-50'>
             <HomeBanner></HomeBanner>
             <div className='container mx-auto'>
                 <HomeGalary></HomeGalary>

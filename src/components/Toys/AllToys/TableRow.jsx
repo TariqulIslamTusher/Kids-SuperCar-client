@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TableRow = ({ product, i }) => {
-    const {  toyName, sellerName, price, subCategory, availableQty, photoURL } = product
+    const { toyName, sellerName, price, subCategory, availableQty, photoURL } = product
 
 
 
     return (
         <>
             <tr className='hover'>
-                
+
                 <td>
-                    {i+1}
+                    {i + 1}
                 </td>
                 <td>
                     <div className="avatar">
@@ -27,7 +28,7 @@ const TableRow = ({ product, i }) => {
                 <td>{price}</td>
                 <td>{availableQty}</td>
                 <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <Link to='/viewDetails'><button className="btn btn-ghost btn-xs">details</button></Link>
                 </th>
 
             </tr>
