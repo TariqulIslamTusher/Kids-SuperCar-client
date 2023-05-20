@@ -33,7 +33,9 @@ const OwnViewDetails = () => {
                         <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Availabe Quantity :</span>{availableQty}</h1>
 
                         <div className='flex justify-between'>
-                            
+                            <Rating
+                                placeholderRating={rating}
+                            ></Rating>
                             <button>Update</button>
                         </div>
 
