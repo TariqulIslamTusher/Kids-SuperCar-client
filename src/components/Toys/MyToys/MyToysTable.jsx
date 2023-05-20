@@ -5,7 +5,8 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Loader from '../../Loader/Loader';
 
 const MyToysTable = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
+    const [limit, setLimit] = useState(1)
     const [products, setProducts] = useState([])
 
     const url = `http://localhost:4000/addedProducts?email=${user?.email}`
@@ -18,7 +19,7 @@ const MyToysTable = () => {
             })
     }, [])
 
-    if(!products){
+    if (!products) {
         return <Loader></Loader>
     }
 
@@ -75,7 +76,7 @@ const MyToysTable = () => {
                         <th>Photo</th>
                         <th>Toy</th>
                         <th>Seller</th>
-                        <th>Sub-Category</th>
+                        <th>Category</th>
                         <th>Price</th>
                         <th>Availabe Qty</th>
                         <th>Details</th>
@@ -83,19 +84,22 @@ const MyToysTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-             
+
 
                     {
-                        products.map((product, i) => <MyTableRows key={i} product={product} handleDelete={handleDelete} i={i}></MyTableRows>)
+                        limit ?
+                            products.slice(0, 10).map((product, i) => <MyTableRows key={i} product={product} handleDelete={handleDelete} i={i}></MyTableRows>)
+                            :
+                            products.map((product, i) => <MyTableRows key={i} product={product} handleDelete={handleDelete} i={i}></MyTableRows>)
                     }
 
 
                 </tbody>
 
-
                 
-                {
-                    products.length > 20 ? <>
+
+                {/* {
+                    products.length > 15 ? <>
                         <tfoot>
                             <tr>
                                 <th>
@@ -115,9 +119,17 @@ const MyToysTable = () => {
                             </tr>
                         </tfoot>
                     </> : ''
-                }
+                } */}
 
             </table>
+            {
+                    products.length > 10 ?
+                        <div className='w-full my-2 text-right'>
+                            {
+                                limit ? <button className='btn' onClick={() => setLimit(0)}>Show More</button> : <button className='btn' onClick={() => setLimit(1)}>Show Less</button>
+                            }
+                        </div> : ''
+                }
         </div>
     );
 };

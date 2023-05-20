@@ -71,10 +71,10 @@ const Register = () => {
         }
 
 
-    // Photo and url updating function
-    const updatePhotoAndUrl = (user) => {
-        return updateProfile(user, { displayName: name, photoURL: Url })
-    }
+        // Photo and url updating function
+        const updatePhotoAndUrl = (user) => {
+            return updateProfile(user, { displayName: name, photoURL: Url })
+        }
 
 
         // creating user with email
@@ -98,8 +98,6 @@ const Register = () => {
                 setRootError(err.message);
                 toast.error(err.message)
             })
-
-
     }
 
 
@@ -135,89 +133,97 @@ const Register = () => {
     }
 
     return (
-        <div className='flex flex-col md:flex-row gap-4 items-center container mx-auto my-5'>
-            <div className='w-1/2'>
-                <Player
-                    src='https://assets4.lottiefiles.com/packages/lf20_UW8DlCRljO.json'
-                    className="player"
-                    loop
-                    style={{ height: '500px' }}
-                    autoplay>
+        <div className='bg-slate-200 py-6'>
+            <div className='flex flex-col md:flex-row gap-4 items-center container mx-auto'>
+                <div className='w-1/2'>
+                    <Player
+                        src='https://assets4.lottiefiles.com/packages/lf20_UW8DlCRljO.json'
+                        className="player"
+                        loop
+                        style={{ height: '500px' }}
+                        autoplay>
 
-                </Player>
-            </div>
-            {/* registration form part */}
+                    </Player>
+                </div>
+                {/* registration form part */}
 
-            <div className='container md:w-1/2 mx-auto'>
+                <div className='container md:w-1/2 mx-auto'>
 
-                <form onSubmit={handleSubmit} className="bg-slate-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-blue-400">
-                    <div className='text-center mb-6'>
-                        <h2 className='font-bold text-amber-700 text-2xl md:text-5xl'>Register Here</h2>
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
-                            Name
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            name="name"
-                            type="text"
+                    <form onSubmit={handleSubmit} className="shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-blue-200 bg-white">
+                        <div className='text-center mb-6'>
+                            <h2 className='font-bold bg-gradient-to-r bg-clip-text text-transparent from-violet-900 to-violet-700 text-2xl md:text-5xl'>Register Here</h2>
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
+                                Name
+                            </label>
+                            <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="name"
+                                type="text"
 
-                            placeholder="Your Name"
-                        />
-                        {nameErr ? <p className='text-red-500'>{nameErr}</p> : ''}
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 font-bold mb-2" htmlFor="url">
-                            Photo Url
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            name="url"
-                            type="text"
-                            placeholder="url:(https://imbb.food.png)"
-                        />
-                        {urlErr ? <p className='text-red-500'>{urlErr}</p> : ''}
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
-                            Email
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            name="email"
-                            type="email"
-                            value={email}
-                            onChange={handleEmail}
-                            placeholder="Enter Your email"
-                        />
-                        {emailError ? <p className='text-red-500'>{emailError}</p> : ''}
+                                placeholder="Your Name"
+                            />
+                            {nameErr ? <p className='text-red-500'>{nameErr}</p> : ''}
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="url">
+                                Photo Url
+                            </label>
+                            <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="url"
+                                type="text"
+                                placeholder="https://imbb.food.png"
+                            />
+                            {urlErr ? <p className='text-red-500'>{urlErr}</p> : ''}
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+                                Email
+                            </label>
+                            <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="email"
+                                type="email"
+                                value={email}
+                                onChange={handleEmail}
+                                placeholder="Enter Your email"
+                            />
+                            {emailError ? <p className='text-red-500'>{emailError}</p> : ''}
 
-                    </div>
+                        </div>
 
-                    <div className="mb-6">
-                        <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
-                            Password
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            name="password"
-                            type="password"
-                            value={password}
-                            onChange={handlePassword}
-                            placeholder="Password"
-                        />
-                        {passwordError ? <p className='text-red-500'>{passwordError}</p> : ''}
-                    </div>
+                        <div className="mb-6">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
+                                Password
+                            </label>
+                            <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="password"
+                                type="password"
+                                value={password}
+                                onChange={handlePassword}
+                                placeholder="Password"
+                            />
+                            {passwordError ? <p className='text-red-500'>{passwordError}</p> : ''}
+                        </div>
 
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Register</button>
-                    <p className='my-3'>Already have an account?<Link className='text-red-800 font-bold ml-2' to='/login'>Log In</Link></p>
+                        <button className="bg-violet-700 hover:bg-violet-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Register</button>
 
-                    <ToastContainer />
 
-                </form>
+                        <div className="flex items-center">
+                            <p className='my-3'>Already have an account?</p>
+                            <Link className='btn btn-link' to='/login'>Log In</Link>
+                        </div>
+
+                        <ToastContainer />
+
+                    </form>
+                </div>
             </div>
         </div>
+
     );
 };
 

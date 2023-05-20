@@ -115,67 +115,69 @@ const Login = () => {
     }
 
     return (
-        <div className='flex flex-col md:flex-row gap-4 items-center container mx-auto my-5'>
-            <div className='w-1/2'>
-                <Player
-                    src='https://assets4.lottiefiles.com/packages/lf20_2TUV98WaqI.json'
-                    className="player"
-                    loop
-                    style={{ height: '500px' }}
-                    autoplay>
+        <div className='bg-slate-200 py-6'>
+            <div className='flex flex-col md:flex-row gap-4 items-center container mx-auto'>
+                <div className='w-1/2'>
+                    <Player
+                        src='https://assets4.lottiefiles.com/packages/lf20_2TUV98WaqI.json'
+                        className="player"
+                        loop
+                        style={{ height: '500px' }}
+                        autoplay>
 
-                </Player>
-            </div>
-            <div className="bg-white shadow-md h-full rounded px-8 pt-6 pb-8 mb-4 w-1/2">
-                <ToastContainer />
-                <form onSubmit={handleLogin} >
-                    <div className='text-center mb-6'>
-                        <h2 className='font-bold heading-text'>Log In</h2>
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
-                            Email
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="email"
-                            type="email"
-                            value={email}
-                            onChange={handleEmail}
-                            placeholder="Enter your email"
-                        />
-                        {emailError ? <p className='text-red-500'>{emailError}</p> : ''}
-                    </div>
-                    <div className="mb-6">
-                        <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
-                            Password
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="password"
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={handlePassword}
-                        />
-                        {passwordError ? <p className='text-red-500'>{passwordError}</p> : ''}
-                    </div>
+                    </Player>
+                </div>
+                <div className="bg-white shadow-md h-full px-8 pt-6 pb-8 w-1/2 rounded-lg">
+                    <ToastContainer />
+                    <form onSubmit={handleLogin} >
+                        <div className=''>
+                            <h2 className='font-bold heading-text'>Log In</h2>
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+                                Email
+                            </label>
+                            <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="email"
+                                type="email"
+                                value={email}
+                                onChange={handleEmail}
+                                placeholder="Enter your email"
+                            />
+                            {emailError ? <p className='text-red-500'>{emailError}</p> : ''}
+                        </div>
+                        <div className="mb-6">
+                            <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
+                                Password
+                            </label>
+                            <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="password"
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={handlePassword}
+                            />
+                            {passwordError ? <p className='text-red-500'>{passwordError}</p> : ''}
+                        </div>
 
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Log In</button>
+                        <button className="bg-emerald-700 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Log In</button>
 
-                    <div className='flex flex-col md:flex-row my-3 gap-2'>
+                        <div className='flex flex-col md:flex-row my-3 gap-2 items-center'>
 
-                        <p >New Here?</p>
-                        <Link className='text-red-800 font-bold' to='/register' state={location.state}>Register now</Link>
-                    </div>
+                            <p >New Here?</p>
+                            <Link className='btn btn-link' to='/register' state={location.state}>Register now</Link>
+                        </div>
 
 
-                    <div onClick={handleGoogle} className='cursor-pointer w-full md:w-1/2 btn flex items-center gap-3 rounded-xl border-2 bg-white shadow-lg p-3 text-red-500 text-2xl'>
-                        <FaGoogle></FaGoogle>
-                        <p className='text-sm'>Log in with Google</p>
-                    </div>
+                        <div onClick={handleGoogle} className='cursor-pointer w-full md:w-1/2 btn flex items-center gap-3 rounded-xl border-2 bg-white shadow-lg p-3 text-red-500 text-2xl'>
+                            <FaGoogle></FaGoogle>
+                            <p className='text-sm'>Log in with Google</p>
+                        </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
 

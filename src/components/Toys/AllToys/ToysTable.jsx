@@ -6,7 +6,9 @@ import Loader from '../../Loader/Loader';
 
 const ToysTable = () => {
 
-    const [products, setProducts] = useState('')
+    const [limit, setLimit] = useState(1)
+
+    let [products, setProducts] = useState('')
 
     useEffect(() => {
         fetch('http://localhost:4000/products')
@@ -16,10 +18,13 @@ const ToysTable = () => {
             })
     }, [])
 
-
     if (!products) {
         return <Loader></Loader>
     }
+
+
+
+
 
     return (
         <div className="overflow-x-auto w-full shadow-xl">
@@ -31,7 +36,7 @@ const ToysTable = () => {
                         <th>Photo</th>
                         <th>Toy</th>
                         <th>Seller</th>
-                        <th>Sub-Category</th>
+                        <th>Category</th>
                         <th>Price</th>
                         <th>Availabe Qty</th>
                         <th>Details</th>
@@ -41,31 +46,40 @@ const ToysTable = () => {
                 <tbody>
                     {/* row 1 */}
 
-                 
-
                     {
-                        products.map((product, i) => <TableRow key={i} product={product} i={i}></TableRow>)
+                        limit ?
+                            products.slice(0, 10).map((product, i) => <TableRow key={i} product={product} i={i}></TableRow>)
+                            :
+                            products.map((product, i) => <TableRow key={i} product={product} i={i}></TableRow>)
                     }
 
 
                 </tbody>
-                {/* foot */}
-                {products.length > 20 ? <>
+                {/* foot
+                {!limit ? <>
                     <tfoot>
                         <tr>
-                        <th>Ser</th>
-                        <th>Photo</th>
-                        <th>Toy</th>
-                        <th>Seller</th>
-                        <th>Sub-Category</th>
-                        <th>Price</th>
-                        <th>Availabe Qty</th>
-                        <th>Details</th>
+                            <th>Ser</th>
+                            <th>Photo</th>
+                            <th>Toy</th>
+                            <th>Seller</th>
+                            <th>Sub-Category</th>
+                            <th>Price</th>
+                            <th>Availabe Qty</th>
+                            <th>Details</th>
                         </tr>
                     </tfoot>
-                </> : ''}
+                </> : ' '} */}
 
             </table>
+            {
+                products.length > 10 ?
+                    <div className='w-full my-2 text-right'>
+                        {
+                            limit ? <button className='btn' onClick={() => setLimit(0)}>Show More</button> : <button className='btn' onClick={() => setLimit(1)}>Show Less</button>
+                        }
+                    </div> : ''
+            }
         </div>
     );
 };
