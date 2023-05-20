@@ -1,19 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const MyTableRows = ({ product, i, handleDelete }) => {
     const {setSingleData} = useContext(AuthContext)
     const { _id, toyName, sellerName, price, subCategory, availableQty, photoURL } = product
-
-    const handleDetails = (_id) => {
-        fetch(`http://localhost:4000/products/${_id}`)
-            .then(res => res.json())
-            .then(data => {
-                setSingleData(data)
-            })
-    }
 
     return (
         <>
@@ -41,7 +32,7 @@ const MyTableRows = ({ product, i, handleDelete }) => {
                 <td>{price}</td>
                 <td>{availableQty}</td>
                 <th>
-                    <Link to='/viewDetails'><button onClick={() => handleDetails(_id)} className="btn btn-ghost btn-xs">details</button></Link>
+                    <Link to={`/ownViewDetails/${_id}`}><button  className="btn btn-ghost btn-xs">details</button></Link>
                 </th>
 
             </tr>

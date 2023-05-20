@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import React from 'react';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
-const ViewDetails = () => {
+const OwnViewDetails = () => {
 
     const singleData = useLoaderData()
 
@@ -19,7 +18,7 @@ const ViewDetails = () => {
 
                 <div className="flex flex-col justify-between p-6 leading-normal">
                     <h1 className="mb-3 lg:text-4xl pb-3 font-bold text-gray-900 border-b-4">{toyName}</h1>
-             
+
                     {/* first border */}
                     <p className="lg:text-2xl mb-3 pb-3 text-gray-700 border-b-4 text-justify">{description}</p>
                     {/* second Border */}
@@ -33,13 +32,10 @@ const ViewDetails = () => {
 
                         <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Availabe Quantity :</span>{availableQty}</h1>
 
-                        <Rating
-                            readonly
-                            placeholderRating={rating}
-                            emptySymbol={FaStar}
-                            placeholderSymbol={FaStar}
-                            fullSymbol={FaRegStar}
-                        ></Rating>
+                        <div className='flex justify-between'>
+                            
+                            <button>Update</button>
+                        </div>
 
 
 
@@ -53,4 +49,4 @@ const ViewDetails = () => {
     );
 };
 
-export default ViewDetails;
+export default OwnViewDetails;

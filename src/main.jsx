@@ -17,6 +17,7 @@ import Blogs from './components/Pages/Blogs';
 import PrivateRoutes from './components/Pages/PrivateRoutes/PrivateRoutes';
 import ViewDetails from './components/Toys/ViewDetails/ViewDetails';
 import ErrorPage from './components/Pages/ErrorPage';
+import OwnViewDetails from './components/Toys/ViewDetails/ownViewDetails';
 
 
 const router = createBrowserRouter([
@@ -42,9 +43,14 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><AddToys></AddToys></PrivateRoutes>
       },
       {
-        path: '/viewDetails',
-        element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>
-       
+        path: '/viewDetails/:id',
+        element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
+        loader: ({params}) => fetch(`http://localhost:4000/products/${params.id}`)
+      },
+      {
+        path: '/ownViewDetails/:id',
+        element: <PrivateRoutes><OwnViewDetails></OwnViewDetails></PrivateRoutes>,
+        loader: ({params}) => fetch(`http://localhost:4000/products/${params.id}`)
       },
       {
         path: "/allToys",
