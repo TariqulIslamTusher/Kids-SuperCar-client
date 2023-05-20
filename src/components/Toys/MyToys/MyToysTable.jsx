@@ -18,6 +18,9 @@ const MyToysTable = () => {
             })
     }, [])
 
+    if(!products){
+        return <Loader></Loader>
+    }
 
     // handle delete the products indivisually 
     const handleDelete = (id) => {
@@ -55,10 +58,6 @@ const MyToysTable = () => {
                     })
             }
         })
-    }
-
-    if (!products) {
-        return <Loader></Loader>
     }
 
     return (

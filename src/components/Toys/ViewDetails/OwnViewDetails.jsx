@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { FaRegEdit, FaRegStar, FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Navigate, useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Tooltip } from 'react-tooltip';
 
 
 const OwnViewDetails = () => {
+    const params = useParams()
+    const [singleData, setSingleData] = useState({})
 
-    const singleData = useLoaderData()
+    useEffect(()=>{
+        fetch(`http://localhost:4000/products/${params.id}`)
+        .then(res=> res.json())
+        .then(data=>{
+            setSingleData(data)
+        })
+    },[singleData])
+
+
+
+    console.log(singleData);
 
     const { _id, toyName, subCategory, sellerName, sellerEmail, rating, price, photoURL, description, category, availableQty } = singleData
 
@@ -16,8 +29,6 @@ const OwnViewDetails = () => {
     const handleUpdate = (e) => {
         e.preventDefault()
         const form = e.target
-        console.log(form);
-
         const price = form.price.value
         const qty = form.qty.value
         const description = form.description.value
@@ -36,13 +47,13 @@ const OwnViewDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+
                 Swal.fire({
                     title: 'Success!',
-                    text: 'Document Updated',
+                    text: 'Items Updated',
                     icon: 'success',
                     confirmButtonText: 'Cool'
-                })
-
+                  })
             })
     }
 
@@ -50,18 +61,17 @@ const OwnViewDetails = () => {
     return (
         <div className='m-8'>
 
-            <div className="flex flex-col items-center bg-white border border-gray-300 rounded-lg shadow-lg md:flex-row md:w-10/12 hover:bg-yellow-50 container mx-auto">
+            <div className="flex flex-col items-center hover:bg-white border border-gray-400 rounded-lg shadow-lg md:flex-row md:w-10/12 bg-yellow-50 container mx-auto">
 
-                <img className="w-full md:w-6/12 rounded-t-lg object-cover md:rounded-none md:rounded-l-lg " src={photoURL} alt="" />
+                <img className="w-full md:w-6/12 rounded-t-lg object-cover md:rounded-none md:rounded-l-lg md:ml-5" src={photoURL} alt="" />
 
                 <div className="flex flex-col justify-between p-6 leading-normal w-6/12 relative">
                     <h1 className="mb-3 lg:text-4xl pb-3 font-bold text-gray-900 border-b-4">{toyName}</h1>
 
 
                     {/* Open Modal button for edit data  */}
-                    <label htmlFor="my-modal-5" className="absolute right-2 top-2"
-                        data-tooltip-content="Update Data">
-                        <FaRegEdit className='text-2xl text-blue-800'></FaRegEdit>
+                    <label htmlFor="my-modal-5" className="absolute right-2 top-2" data-tooltip-id="my-tooltip" data-tooltip-content="Update Data">
+                        <FaRegEdit id="my-tooltip" className='text-2xl text-blue-800'></FaRegEdit>
                     </label>
                     {/* Put this part before </body> tag */}
                     <input type="checkbox" id="my-modal-5" className="modal-toggle" />
@@ -76,7 +86,7 @@ const OwnViewDetails = () => {
 
                             <div className='text-center'>
                                 <h2 className='text-3xl heading-text'>{toyName}</h2>
-
+                               
                             </div>
 
                             {/*  updating form  */}
@@ -138,6 +148,8 @@ const OwnViewDetails = () => {
                         <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Seller Name :</span> {sellerName}</h1>
 
                         <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Seller Email :</span>{sellerEmail}</h1>
+
+                        <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Category :</span>{category}</h1>
 
                         <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Price :</span>{price}</h1>
 

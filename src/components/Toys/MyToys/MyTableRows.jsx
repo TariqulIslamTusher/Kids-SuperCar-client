@@ -6,6 +6,8 @@ const MyTableRows = ({ product, i, handleDelete }) => {
     const {setSingleData} = useContext(AuthContext)
     const { _id, toyName, sellerName, price, subCategory, availableQty, photoURL } = product
 
+
+
     return (
         <>
             <tr className='hover'>
