@@ -18,6 +18,7 @@ import PrivateRoutes from './components/Pages/PrivateRoutes/PrivateRoutes';
 import ViewDetails from './components/Toys/ViewDetails/ViewDetails';
 import ErrorPage from './components/Pages/ErrorPage';
 import OwnViewDetails from './components/Toys/ViewDetails/ownViewDetails';
+import UpdateData from './components/Toys/UpdateData/UpdateData';
 
 
 const router = createBrowserRouter([

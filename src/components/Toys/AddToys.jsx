@@ -74,11 +74,7 @@ const AddToys = () => {
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
-                // if(data.insertedId){
-                //     alert('data added succecfully')
-                // }
-                // form.reset()
-                // toast.success('product added')
+               
             })
 
     };

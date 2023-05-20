@@ -33,14 +33,18 @@ const ViewDetails = () => {
 
                         <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Availabe Quantity :</span>{availableQty}</h1>
 
-                        <Rating
-                            readonly
-                            placeholderRating={rating}
-                            emptySymbol={FaStar}
-                            placeholderSymbol={FaStar}
-                            fullSymbol={FaRegStar}
-                        ></Rating>
-
+                        <div className='flex items-center justify-between gap-3'>
+                        <p className='font-bold text-xl'>Ratings: {rating}</p>
+                                <Rating
+                                    className='text-2xl text-yellow-500'
+                                    placeholderRating={rating}
+                                    readonly
+                                    emptySymbol={<FaRegStar></FaRegStar>}
+                                    placeholderSymbol={<FaStar></FaStar>}
+                                    fullSymbol={<FaStar></FaStar>}
+                                ></Rating>
+                                
+                            </div>
 
 
 
