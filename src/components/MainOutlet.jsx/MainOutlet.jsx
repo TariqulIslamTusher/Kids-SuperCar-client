@@ -6,7 +6,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 const MainOutlet = () => {
     return (
         <div>
-            <div className=' shadow-xl'>
+            <div className='shadow-xl'>
                 <Navbar></Navbar>
             </div>
             <div className='mx-auto min-h-[calc(100vh-350px)]'>

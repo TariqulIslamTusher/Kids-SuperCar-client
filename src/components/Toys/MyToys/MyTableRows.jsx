@@ -34,7 +34,7 @@ const MyTableRows = ({ product, i, handleDelete }) => {
                 <td>{price}</td>
                 <td>{availableQty}</td>
                 <th>
-                    <Link to={`/ownViewDetails/${_id}`}><button  className="btn btn-ghost btn-xs">details</button></Link>
+                    <Link to={`/ownViewDetails/${_id}`}><button  className="btn btn-outline btn-sm">details</button></Link>
                 </th>
 
             </tr>

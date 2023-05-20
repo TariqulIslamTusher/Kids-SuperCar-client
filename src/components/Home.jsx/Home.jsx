@@ -1,12 +1,15 @@
 import React from 'react';
 import HomeBanner from './HomeBanner';
-import Category from './Category';
 import HomeGalary from './HomeGalary';
+import HomeCategory from './HomeCategory';
 
 const Home = () => {
     return (
-        <div className='bg-slate-50'>
+        <div className='bg-slate-200'>
             <HomeBanner></HomeBanner>
+            <div>
+                <HomeCategory></HomeCategory>
+            </div>
             <div className='container mx-auto'>
                 <HomeGalary></HomeGalary>
             </div>

@@ -74,12 +74,12 @@ const MyToysTable = () => {
                         </th>
                         <th>Ser</th>
                         <th>Photo</th>
-                        <th>Toy</th>
-                        <th>Seller</th>
+                        <th>Toy Name</th>
+                        <th>Seller Name</th>
                         <th>Category</th>
                         <th>Price</th>
                         <th>Availabe Qty</th>
-                        <th>Details</th>
+                        <th>Total: {products.length}</th>
 
                     </tr>
                 </thead>

@@ -117,7 +117,7 @@ const Login = () => {
     return (
         <div className='bg-slate-200 py-6'>
             <div className='flex flex-col md:flex-row gap-4 items-center container mx-auto'>
-                <div className='w-1/2'>
+                <div className='w-1/2 hidden md:block'>
                     <Player
                         src='https://assets4.lottiefiles.com/packages/lf20_2TUV98WaqI.json'
                         className="player"
@@ -127,11 +127,11 @@ const Login = () => {
 
                     </Player>
                 </div>
-                <div className="bg-white shadow-md h-full px-8 pt-6 pb-8 w-1/2 rounded-lg">
+                <div className="bg-white shadow-md h-full px-8 pt-6 pb-8 w-full md:w-1/2 rounded-lg">
                     <ToastContainer />
                     <form onSubmit={handleLogin} >
                         <div className=''>
-                            <h2 className='font-bold heading-text'>Log In</h2>
+                            <h2 className='font-bold heading-text text-3xl md:text-6xl'>Log In</h2>
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-700 font-bold mb-2" htmlFor="email">

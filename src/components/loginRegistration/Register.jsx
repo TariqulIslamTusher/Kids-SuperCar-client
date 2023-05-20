@@ -135,7 +135,7 @@ const Register = () => {
     return (
         <div className='bg-slate-200 py-6'>
             <div className='flex flex-col md:flex-row gap-4 items-center container mx-auto'>
-                <div className='w-1/2'>
+                <div className='w-1/2 hidden md:block'>
                     <Player
                         src='https://assets4.lottiefiles.com/packages/lf20_UW8DlCRljO.json'
                         className="player"
