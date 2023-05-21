@@ -4,27 +4,29 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Loader from '../../Loader/Loader';
 
-const ToysTable = () => {
+const ToysTable = ({sortData}) => {
 
     const [limit, setLimit] = useState(1)
 
     let [products, setProducts] = useState('')
 
     useEffect(() => {
-        fetch('https://toy-market-place-server-eight.vercel.app/products')
+        fetch('http://localhost:4000/products')
             .then(res => res.json())
             .then(data => {
-                setProducts(data)
+                if(sortData){
+                    setProducts(sortData)
+                }else if(!sortData || sortData === '' || sortData === null){
+                    setProducts(data)
+                } else{
+                    
+                }
             })
-    }, [])
+    }, [sortData])
 
     if (!products) {
         return <Loader></Loader>
     }
-
-
-
-
 
     return (
         <div className="overflow-x-auto w-full shadow-xl">

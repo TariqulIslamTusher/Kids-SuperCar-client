@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Rating from 'react-rating';
 import { FaRegEdit, FaRegStar, FaStar } from 'react-icons/fa';
-import { Navigate, useLoaderData, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Tooltip } from 'react-tooltip';
 import useTitle from '../../UseHooks/UseTitle';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const OwnViewDetails = () => {
     useTitle('View My Added Products')
-    const params = useParams()
-    const [singleData, setSingleData] = useState({})
+    const { id } = useParams()
+    const [singleData, setSingleData] = useState('')
 
-    useEffect(()=>{
-        fetch(`https://toy-market-place-server-eight.vercel.app/products/${params.id}`)
-        .then(res=> res.json())
-        .then(data=>{
-            setSingleData(data)
-        })
-    },[singleData])
+    useEffect(() => {
+        fetch(`http://localhost:4000/products/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setSingleData(data)
+            })
+    }, [])
 
-
-
-    console.log(singleData);
-
+    console.log(singleData, id);
     const { _id, toyName, subCategory, sellerName, sellerEmail, rating, price, photoURL, description, category, availableQty } = singleData
 
 
@@ -39,7 +38,7 @@ const OwnViewDetails = () => {
             price, qty, description, _id
         }
 
-        fetch(`https://toy-market-place-server-eight.vercel.app/products/${_id}`, {
+        fetch(`http://localhost:4000/products/${_id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"
@@ -55,7 +54,7 @@ const OwnViewDetails = () => {
                     text: 'Items Updated',
                     icon: 'success',
                     confirmButtonText: 'Cool'
-                  })
+                })
             })
     }
 
@@ -89,7 +88,7 @@ const OwnViewDetails = () => {
 
                             <div className='text-center'>
                                 <h2 className='text-3xl heading-text'>{toyName}</h2>
-                               
+
                             </div>
 
                             {/*  updating form  */}

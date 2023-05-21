@@ -41,13 +41,13 @@ const AddToys = () => {
 
         const form = e.target
 
-        const toyName = form.toyName.value
-        const sellerName = form.sellerName.value
+        const toyName = form.toyName.value.toUpperCase()
+        const sellerName = form.sellerName.value.toUpperCase()
         const sellerEmail = form.sellerEmail.value
         const category = form.category.value
         const subCategory = form.subCategory.value
         const photoURL = form.photoURL.value
-        const price = form.price.value
+        const price = parseInt(form.price.value)
         const rating = form.rating.value
         const availableQty = form.availableQty.value
         const description = form.description.value
@@ -60,7 +60,7 @@ const AddToys = () => {
 
 
         // send data to the server 
-        fetch('https://toy-market-place-server-eight.vercel.app/addProduct', {
+        fetch('http://localhost:4000/addProduct', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -250,7 +250,6 @@ const AddToys = () => {
                                 id="price"
                                 name="price"
                                 required
-
                             />
                         </div>
 

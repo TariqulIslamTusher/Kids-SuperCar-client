@@ -7,7 +7,6 @@ import useTitle from '../../UseHooks/UseTitle';
 
 const ViewDetails = () => {
     useTitle("View Details")
-
     const singleData = useLoaderData()
 
     const { toyName, subCategory, sellerName, sellerEmail, rating, price, photoURL, description, category, availableQty } = singleData

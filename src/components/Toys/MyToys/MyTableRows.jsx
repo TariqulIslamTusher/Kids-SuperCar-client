@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const MyTableRows = ({ product, i, handleDelete }) => {
-    const {setSingleData} = useContext(AuthContext)
+    const {singleData, setSingleData} = useContext(AuthContext)
     const { _id, toyName, sellerName, price, subCategory, availableQty, photoURL } = product
-
-
 
     return (
         <>

@@ -4,20 +4,26 @@ import MyTableRows from './MyTableRows';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Loader from '../../Loader/Loader';
 
-const MyToysTable = () => {
+const MyToysTable = ({sortData}) => {
     const { user } = useContext(AuthContext)
     const [limit, setLimit] = useState(1)
     const [products, setProducts] = useState([])
 
-    const url = `https://toy-market-place-server-eight.vercel.app/addedProducts?email=${user?.email}`
+    const url = `http://localhost:4000/addedProducts?email=${user?.email}`
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setProducts(data)
+                if(sortData){
+                    setProducts(sortData)
+                }else if(!sortData || sortData === '' || sortData === null){
+                    setProducts(data)
+                } else{
+                    
+                }
             })
-    }, [])
+    }, [sortData])
 
     if (!products) {
         return <Loader></Loader>
@@ -35,7 +41,7 @@ const MyToysTable = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://toy-market-place-server-eight.vercel.app/products/${id}`, {
+                fetch(`http://localhost:4000/products/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -47,7 +53,7 @@ const MyToysTable = () => {
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
-                                'success'
+                                'success' 
                             )
                         } else {
                             Swal.fire(
@@ -88,7 +94,7 @@ const MyToysTable = () => {
 
                     {
                         limit ?
-                            products.slice(0, 10).map((product, i) => <MyTableRows key={i} product={product} handleDelete={handleDelete} i={i}></MyTableRows>)
+                            products.slice(0, 20).map((product, i) => <MyTableRows key={i} product={product} handleDelete={handleDelete} i={i}></MyTableRows>)
                             :
                             products.map((product, i) => <MyTableRows key={i} product={product} handleDelete={handleDelete} i={i}></MyTableRows>)
                     }
