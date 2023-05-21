@@ -58,7 +58,7 @@ const HomeBanner = () => {
             </div>
 
                 <div className='md:animate-pulse hover:animate-none md:absolute md:right-0 md:top-1/3 p-5 md:p-10 h-min md:hover:w-8/12 md:w-4/12 bg-slate-900 md:bg-opacity-40 md:hover:bg-opacity-80 transition-all duration-500 text-white md:rounded-l-3xl'>
-                    <h1 className="text-lg md:text-5xl font-bold">Hello there</h1>
+                    <h1 className="text-2xl md:text-5xl font-bold">Hello there</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <button className="btn bg-amber-600 ">Get Started</button>
 
