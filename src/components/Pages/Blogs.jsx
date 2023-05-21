@@ -14,9 +14,10 @@ const Blogs = () => {
                 </div>
                 {/* Context api */}
                 <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
+                {/* What is an access token and refresh token? How do they work and where should we store them on the client-side? */}
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
-                        When do we use Context API?
+                        What is an access token and refresh token? How do they work and where should we store them on the client-side?
                     </div>
                     <div className="collapse-content bg-slate-100">
                         <p className='text-2xl leading-9'>
@@ -24,11 +25,11 @@ const Blogs = () => {
                         </p>
                     </div>
                 </div>
-                {/* What is custom hook */}
+                {/*Difference between SQL and NoSQL databases? */}
                 <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
-                        What is custom hook?
+                        Difference between SQL and NoSQL databases?
                     </div>
                     <div className="collapse-content bg-slate-100">
                         <p className='text-2xl leading-9'>
@@ -47,11 +48,11 @@ const Blogs = () => {
                         </p>
                     </div>
                 </div>
-                {/* What does it mean by useRef? */}
+                {/*    What is express js? What is Nest JS? */}
                 <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
-                        What does it mean by useRef?
+                        What is express js? What is Nest JS?
                     </div>
                     <div className="collapse-content bg-slate-100">
                         <p className='text-2xl leading-9'>
@@ -65,11 +66,11 @@ const Blogs = () => {
                         </p>
                     </div>
                 </div>
-                {/* What does it mean by useMemo? */}
+                {/* What is MongoDB aggregate and how does it work? */}
                 <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
-                        What does it mean by useMemo?
+                    What is MongoDB aggregate and how does it work?
                     </div>
                     <div className="collapse-content bg-slate-100">
                         <p className='text-2xl leading-9'>With the release of React 16.8, there are many useful hooks we can now use in your React applications where there is a mentionable Hooks that was introduced in 16.8 is <span className='font-bold'>useMemo</span> . This hook has the potential to improve performance in your application.The useMemo hook is needed for memoizing or caching computed results for reoccurring usage. It would help if we did not use the useMemo hook on side-effect tasks such as changing a state variable or a Virtual DOM element.</p>
