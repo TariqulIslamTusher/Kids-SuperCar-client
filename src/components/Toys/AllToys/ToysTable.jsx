@@ -50,7 +50,7 @@ const ToysTable = ({sortData}) => {
 
                     {
                         limit ?
-                            products.slice(0, 10).map((product, i) => <TableRow key={i} product={product} i={i}></TableRow>)
+                            products.slice(0, 20).map((product, i) => <TableRow key={i} product={product} i={i}></TableRow>)
                             :
                             products.map((product, i) => <TableRow key={i} product={product} i={i}></TableRow>)
                     }
@@ -74,6 +74,10 @@ const ToysTable = ({sortData}) => {
                 </> : ' '} */}
 
             </table>
+           
+           
+           
+           
             {
                 products.length > 10 ?
                     <div className='w-full my-2 text-right'>
