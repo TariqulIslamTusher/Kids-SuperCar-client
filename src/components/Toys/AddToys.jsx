@@ -2,8 +2,10 @@ import { useContext, useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2'
+import useTitle from '../UseHooks/UseTitle';
 
 const AddToys = () => {
+    useTitle('Add Toys')
 
     const { user } = useContext(AuthContext)
 
@@ -58,7 +60,7 @@ const AddToys = () => {
 
 
         // send data to the server 
-        fetch('http://localhost:4000/addProduct', {
+        fetch('https://toy-market-place-server-eight.vercel.app/addProduct', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -73,236 +75,238 @@ const AddToys = () => {
                     text: 'User Added',
                     icon: 'success',
                     confirmButtonText: 'Cool'
-                  })
-               
+                })
+
             })
 
     };
 
     return (
-        <div className='flex flex-col md:flex-row items-center my-5 container mx-auto'>
-            <div className='w-1/2'>
-                {/* <ToastContainer></ToastContainer> */}
-                <Player
-                    src='https://assets10.lottiefiles.com/private_files/lf30_5bsxhzst.json'
-                    className="player h-screen"
-                    loop
+        <div className='bg-slate-200 py-7'>
+            <div className='flex flex-col md:flex-row items-center container mx-auto'>
+                <div className='w-1/2'>
+                    {/* <ToastContainer></ToastContainer> */}
+                    <Player
+                        src='https://assets10.lottiefiles.com/private_files/lf30_5bsxhzst.json'
+                        className="player h-screen"
+                        loop
 
-                    autoplay>
+                        autoplay>
 
-                </Player>
-            </div>
-            <form className=" mx-auto" onSubmit={handleSubmit}>
-                <div className='flex gap-5'>
-                    <div className="mb-4 w-full">
-                        <label className="block mb-2 text-lg font-medium" htmlFor="name">
-                            Toy Name
+                    </Player>
+                </div>
+                <form className=" mx-auto" onSubmit={handleSubmit}>
+                    <div className='flex gap-5'>
+                        <div className="mb-4 w-full">
+                            <label className="block mb-2 text-lg font-medium" htmlFor="name">
+                                Toy Name
+                            </label>
+                            <input
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                type="text"
+                                id="toyName"
+                                name="toyName"
+                                required
+                            />
+                        </div>
+
+                        <div className="mb-4 w-full">
+                            <label className="block mb-2 text-lg font-medium" htmlFor="sellerName">
+                                Seller Name
+                            </label>
+                            <input
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                type="text"
+                                id="sellerName"
+                                name="sellerName"
+                                placeholder={user ? user.displayName : ''}
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div className="mb-4">
+                        <label className="block mb-2 text-lg font-medium" htmlFor="sellerEmail">
+                            Seller Email
                         </label>
                         <input
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            type="text"
-                            id="toyName"
-                            name="toyName"
+                            type="email"
+                            id="sellerEmail"
+                            name="sellerEmail"
+                            placeholder={user ? user.email : ''}
                             required
+
                         />
                     </div>
 
-                    <div className="mb-4 w-full">
-                        <label className="block mb-2 text-lg font-medium" htmlFor="sellerName">
-                            Seller Name
-                        </label>
-                        <input
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            type="text"
-                            id="sellerName"
-                            name="sellerName"
-                            placeholder={user? user.displayName: ''}
-                            required
-                        />
+                    <div className='flex gap-5'>
+                        <div className="mb-4 w-full">
+                            <label className="block mb-2 text-lg font-medium" htmlFor="photoURL">
+                                Category
+                            </label>
+                            <select
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                type="text"
+                                id="category"
+                                name="category"
+                                onChange={handleCat}
+                                required
+                            >
+                                <option value="">Select One</option>
+                                <option value="Bus">Bus</option>
+                                <option value="Car">Car</option>
+                                <option value="Truck">Truck</option>
+                            </select>
+                        </div>
+                        {/*  thre sub-category for 3 category */}
+                        {subCat1 ? <>
+                            <div className='mb-4 w-full'>
+                                <label className="block mb-2 text-lg font-medium" htmlFor="subCategory">
+                                    Sub-category
+                                </label>
+                                <select
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                    type="text"
+                                    id="subCategory"
+                                    name="subCategory"
+                                    required
+                                >
+
+                                    <option value="MiniBus"> Mini Bus</option>
+                                    <option value="PublicBus">Public Bus</option>
+                                    <option value="Coaster">Coaster</option>
+                                </select>
+                            </div>
+                        </> : ''}
+
+
+                        {/* subcat 2 */}
+                        {subCat2 ? <>
+                            <div className='mb-4 w-full'>
+                                <label className="block mb-2 text-lg font-medium" htmlFor="subCategory">
+                                    Sub-category
+                                </label>
+                                <select
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                    type="text"
+                                    id="subCategory"
+                                    name="subCategory"
+                                    required
+                                >
+
+                                    <option value="Sports">Sports Car</option>
+                                    <option value="PrivateCar">Private Car</option>
+                                    <option value="Micro">Micro</option>
+                                </select>
+                            </div>
+                        </> : ''}
+
+                        {/* sub Cat 3 */}
+                        {subCat3 ? <>
+                            <div className='mb-4 w-full'>
+                                <label className="block mb-2 text-lg font-medium" htmlFor="subCategory">
+                                    Sub-category
+                                </label>
+                                <select
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                    type="text"
+                                    id="subCategory"
+                                    name="subCategory"
+                                    required
+                                >
+
+                                    <option value="MiniTruck">Mini Truck</option>
+                                    <option value="CoverVan">Cover Van</option>
+                                    <option value="SixWheeler">Six Wheeler</option>
+                                </select>
+                            </div>
+                        </> : ""}
+
+
                     </div>
-                </div>
 
-                <div className="mb-4">
-                    <label className="block mb-2 text-lg font-medium" htmlFor="sellerEmail">
-                        Seller Email
-                    </label>
-                    <input
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        type="email"
-                        id="sellerEmail"
-                        name="sellerEmail"
-                        placeholder={user? user.email: ''}
-                        required
-
-                    />
-                </div>
-
-                <div className='flex gap-5'>
-                    <div className="mb-4 w-full">
+                    <div className="mb-4">
                         <label className="block mb-2 text-lg font-medium" htmlFor="photoURL">
-                            Category
+                            Picture URL
                         </label>
-                        <select
+                        <input
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                             type="text"
-                            id="category"
-                            name="category"
-                            onChange={handleCat}
-                            required
-                        >
-                            <option value="">Select One</option>
-                            <option value="Bus">Bus</option>
-                            <option value="Car">Car</option>
-                            <option value="Truck">Truck</option>
-                        </select>
-                    </div>
-                    {/*  thre sub-category for 3 category */}
-                    {subCat1 ? <>
-                        <div className='mb-4 w-full'>
-                            <label className="block mb-2 text-lg font-medium" htmlFor="subCategory">
-                                Sub-category
-                            </label>
-                            <select
-                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                type="text"
-                                id="subCategory"
-                                name="subCategory"
-                                required
-                            >
-
-                                <option value="MiniBus"> Mini Bus</option>
-                                <option value="PublicBus">Public Bus</option>
-                                <option value="Coaster">Coaster</option>
-                            </select>
-                        </div>
-                    </> : ''}
-
-
-                    {/* subcat 2 */}
-                    {subCat2 ? <>
-                        <div className='mb-4 w-full'>
-                            <label className="block mb-2 text-lg font-medium" htmlFor="subCategory">
-                                Sub-category
-                            </label>
-                            <select
-                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                type="text"
-                                id="subCategory"
-                                name="subCategory"
-                                required
-                            >
-
-                                <option value="Sports">Sports Car</option>
-                                <option value="PrivateCar">Private Car</option>
-                                <option value="Micro">Micro</option>
-                            </select>
-                        </div>
-                    </> : ''}
-
-                    {/* sub Cat 3 */}
-                    {subCat3 ? <>
-                        <div className='mb-4 w-full'>
-                            <label className="block mb-2 text-lg font-medium" htmlFor="subCategory">
-                                Sub-category
-                            </label>
-                            <select
-                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                                type="text"
-                                id="subCategory"
-                                name="subCategory"
-                                required
-                            >
-
-                                <option value="MiniTruck">Mini Truck</option>
-                                <option value="CoverVan">Cover Van</option>
-                                <option value="SixWheeler">Six Wheeler</option>
-                            </select>
-                        </div>
-                    </> : ""}
-
-
-                </div>
-
-                <div className="mb-4">
-                    <label className="block mb-2 text-lg font-medium" htmlFor="photoURL">
-                        Picture URL
-                    </label>
-                    <input
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        type="text"
-                        id="photoURL"
-                        name="photoURL"
-                        required
-
-                    />
-                </div>
-                <div className='flex gap-3'>
-                    <div className="mb-4">
-                        <label className="block mb-2 text-lg font-medium" htmlFor="price">
-                            Price
-                        </label>
-                        <input
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            type="number"
-                            id="price"
-                            name="price"
+                            id="photoURL"
+                            name="photoURL"
                             required
 
                         />
                     </div>
+                    <div className='flex gap-3'>
+                        <div className="mb-4">
+                            <label className="block mb-2 text-lg font-medium" htmlFor="price">
+                                Price
+                            </label>
+                            <input
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                type="number"
+                                id="price"
+                                name="price"
+                                required
 
-                    <div className="mb-4">
-                        <label className="block mb-2 text-lg font-medium" htmlFor="rating">
-                            Rating
-                        </label>
-                        <input
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            type="number"
-                            max={5}
-                            id="rating"
-                            name="rating"
-                            required
+                            />
+                        </div>
 
-                        />
+                        <div className="mb-4">
+                            <label className="block mb-2 text-lg font-medium" htmlFor="rating">
+                                Rating
+                            </label>
+                            <input
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                type="number"
+                                max={5}
+                                id="rating"
+                                name="rating"
+                                required
+
+                            />
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="block mb-2 text-lg font-medium" htmlFor="availableQty">
+                                Aval Quantity
+                            </label>
+                            <input
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                type="number"
+                                id="availableQty"
+                                name="availableQty"
+                                required
+
+                            />
+                        </div>
                     </div>
 
+
+
                     <div className="mb-4">
-                        <label className="block mb-2 text-lg font-medium" htmlFor="availableQty">
-                            Aval Quantity
+                        <label className="block mb-2 text-lg font-medium" htmlFor="description">
+                            Detail Description
                         </label>
-                        <input
+                        <textarea
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            type="number"
-                            id="availableQty"
-                            name="availableQty"
+                            id="description"
+                            name="description"
                             required
 
-                        />
+                        ></textarea>
                     </div>
-                </div>
 
-
-
-                <div className="mb-4">
-                    <label className="block mb-2 text-lg font-medium" htmlFor="description">
-                        Detail Description
-                    </label>
-                    <textarea
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        id="description"
-                        name="description"
-                        required
-
-                    ></textarea>
-                </div>
-
-                <button
-                    className="w-full py-2 px-4 text-lg font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600"
-                    type="submit"
-                >
-                    Submit
-                </button>
-            </form>
+                    <button
+                        className="w-full py-2 px-4 text-lg font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                        type="submit"
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };

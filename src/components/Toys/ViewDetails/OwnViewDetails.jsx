@@ -4,14 +4,16 @@ import { FaRegEdit, FaRegStar, FaStar } from 'react-icons/fa';
 import { Navigate, useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Tooltip } from 'react-tooltip';
+import useTitle from '../../UseHooks/UseTitle';
 
 
 const OwnViewDetails = () => {
+    useTitle('View My Added Products')
     const params = useParams()
     const [singleData, setSingleData] = useState({})
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/products/${params.id}`)
+        fetch(`https://toy-market-place-server-eight.vercel.app/products/${params.id}`)
         .then(res=> res.json())
         .then(data=>{
             setSingleData(data)
@@ -37,7 +39,7 @@ const OwnViewDetails = () => {
             price, qty, description, _id
         }
 
-        fetch(`http://localhost:4000/products/${_id}`, {
+        fetch(`https://toy-market-place-server-eight.vercel.app/products/${_id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"

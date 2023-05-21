@@ -4,9 +4,11 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { ToastContainer, toast } from 'react-toastify';
+import useTitle from '../UseHooks/UseTitle';
 
 
 const Register = () => {
+    useTitle('Register')
 
     const { createAcctWithEmail, setUser, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, setRootError } = useContext(AuthContext)
     const navigate = useNavigate()

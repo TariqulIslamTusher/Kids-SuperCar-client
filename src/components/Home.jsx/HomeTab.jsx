@@ -19,9 +19,9 @@ const HomeTab = () => {
 
     console.log(category);
 
-    useEffect(()=>{
-      fetch('')
-    },[])
+    // useEffect(()=>{
+      
+    // },[])
 
 
 

@@ -6,12 +6,14 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { app } from '../../firebase/firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
+import useTitle from '../UseHooks/UseTitle';
 
 const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider()
 
 
 const Login = () => {
+    useTitle('Login')
 
     const { LoginWithEmail, setUser, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, rootErr, setRootError } = useContext(AuthContext)
     const location = useLocation()

@@ -1,7 +1,9 @@
 import React from 'react';
+import useTitle from '../UseHooks/UseTitle';
 
 
 const Blogs = () => {
+    useTitle('Blogs')
     return (
         <div>
 

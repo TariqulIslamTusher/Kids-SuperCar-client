@@ -3,8 +3,10 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import { useLoaderData, useParams } from 'react-router-dom';
+import useTitle from '../../UseHooks/UseTitle';
 
 const ViewDetails = () => {
+    useTitle("View Details")
 
     const singleData = useLoaderData()
 

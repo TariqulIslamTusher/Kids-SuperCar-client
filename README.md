@@ -1,22 +1,21 @@
 # Final overview of this project:
 
-- Welcome to our comunity of chef's world here are our selected chef those who are always famous in all the time
+- Welcome to our shop Name: Kid's Super Car. We provide here services in online and offline together
 
-- In this website there will be displayed some chef's photos , their reviews , popularity and rating.
+- In this website there will be displayed our products quality and credentials, which will help you to select the toys you want
 
-- This site has also the recipes of our selected chefs and the methods of the different recipes
+- This site has also tha previllage to add toys in your whiteList and review this if only you login.
 
-- This site can acces you by google and github login only, other then this you have to create account by email and password.
+- This site has two login parameters, Emai and password and google sign in system
 
 - There in this site for registration you will be very comfort to see the velidation process
 
-- All chefs recipies are protected in a private route. So you have to login first to watch those recipes
+- All The toy has sorting system for your better feel to select product in base of price higher and lower
+
 - Hope you have a eligant idea about my site
 
-#### Join OUR FREE MEETING WITH WORLD BEST CHEF OR ENJOY OUR VIDEO ON SITE!
-
-
+#### Join OUR OFFLINE SHOP AT BANANI-125, DHAKA, BANGLADESH!
 
 
 ## 🔗 Links
-[![Live Link of my Project:](https://img.shields.io/badge/My_JobField_Project-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://tenth-chef-recipe-hunter.web.app/)
+[![Live Link of my Project:](https://img.shields.io/badge/My_JobField_Project-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://toy-marketplace-client-55021.web.app/)
