@@ -14,10 +14,13 @@ const Blogs = () => {
                 </div>
                 {/* Context api */}
                 <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
-                    {/* What is an access token and refresh token? How do they work and where should we store them on the client-side? */}
+                {/* What is an access token and refresh token? How do they work and where should we store them on the client-side? */}
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
-                        <p tabIndex={0} className="px-8">
+                        What is an access token and refresh token? How do they work and where should we store them on the client-side?
+                    </div>
+                    <div className="collapse-content bg-slate-100">
+                    <p tabIndex={0} className="px-8">
                             <strong className="text-2xl font-bold italic font-mono">
                                 Access Token:
                             </strong>
@@ -62,11 +65,6 @@ const Blogs = () => {
                             accessible to malicious scripts or third-party JavaScript code.
                         </p>
                     </div>
-                    <div className="collapse-content bg-slate-100">
-                        <p className='text-2xl leading-9'>
-                            Context Api is  added in version 16.3 of React that allows one to share state across the entire app. It is a primarily fetched data which is accesible throug-out many components. Normally a root component get the data by fetching and after that throug a react provider it give the access of same data in all component under the root component . To spread Out the data a context api called <span className='font-bold'>useContext</span> is used genarally.This inversion of context api made our code cleaner in many cases by reducing the amount of props that need to pass through a application and giving more control to the root components. There is no limitation in the children to use the access of data
-                        </p>
-                    </div>
                 </div>
                 {/*Difference between SQL and NoSQL databases? */}
                 <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
@@ -75,20 +73,71 @@ const Blogs = () => {
                         Difference between SQL and NoSQL databases?
                     </div>
                     <div className="collapse-content bg-slate-100">
-                        <p className='text-2xl leading-9'>
-
-                            Hooks are reusable functions. When we have component logic that needs to be used by multiple components, we can extract that logic to a custom Hook. Custom Hooks start with "use". such as:
-                            <ul className='list-disc indent-2 ml-7'>
-                                <li>useFetch</li>
-                                <li>useContext</li>
-                                <li>useNavigate</li>
-                                <li>useNavigation</li>
-                            </ul>
-
-                            <span>
-                                Custom Hooks are a mechanism to reuse stateful logic (such as setting up a subscription and remembering the current value and makes changes of values), but every time you use a custom Hook, all state and effects inside of it are fully isolated.
-                            </span>
-                        </p>
+                    <p tabIndex={0} className="px-8">
+              <strong className="text-2xl font-bold italic font-mono">
+                Compare SQL and NoSQL databases:
+              </strong>
+              <br />
+              SQL (Structured Query Language) and NoSQL (Not Only SQL) databases
+              are two different types of database management systems, each with
+              its own characteristics and use cases.
+              <br />
+              <br />
+              <strong className="text-2xl font-bold italic font-mono">
+                SQL Databases:
+              </strong>
+              <br />
+              SQL databases are relational databases that organize data into
+              tables with rows and columns. They follow a predefined schema and
+              enforce strong data consistency and integrity. SQL databases use
+              structured query language (SQL) for defining and manipulating the
+              data.
+              <br />
+              Some key characteristics of SQL databases include:
+              <br />
+              <br />
+              <ul className="list-disc list-inside mt-2 ml-6">
+                <li>Structured data model with fixed schema</li>
+                <li>Strong data consistency</li>
+                <li>
+                  Support for ACID (Atomicity, Consistency, Isolation,
+                  Durability) transactions
+                </li>
+                <li>Relationships and joins between tables</li>
+                <li>Well-suited for complex queries and aggregations</li>
+                <li>Vertical scalability (scaling up hardware resources)</li>
+              </ul>
+              <br />
+              <strong className="text-2xl font-bold italic font-mono">
+                NoSQL Databases:
+              </strong>
+              <br />
+              NoSQL databases are non-relational databases that provide a
+              flexible and scalable approach for managing data. They can handle
+              large volumes of unstructured or semi-structured data and offer
+              high performance and scalability.
+              <br />
+              Some key characteristics of NoSQL databases include:
+              <br />
+              <br />
+              <ul className="list-disc list-inside mt-2 ml-6">
+                <li>Schema-less or flexible data model</li>
+                <li>Eventual data consistency</li>
+                <li>
+                  Horizontal scalability (scaling out by adding more servers)
+                </li>
+                <li>Support for distributed architectures</li>
+                <li>High availability and fault tolerance</li>
+                <li>Optimized for read and write-heavy workloads</li>
+              </ul>
+              <br />
+              SQL and NoSQL databases have different strengths and are suitable
+              for different use cases. SQL databases are often used for
+              applications that require complex queries, data consistency, and
+              strict adherence to a predefined schema. NoSQL databases are
+              popular for handling large-scale data, high traffic loads, and
+              scenarios where flexible schema and scalability are important.
+            </p>
                     </div>
                 </div>
                 {/*    What is express js? What is Nest JS? */}
@@ -98,25 +147,142 @@ const Blogs = () => {
                         What is express js? What is Nest JS?
                     </div>
                     <div className="collapse-content bg-slate-100">
-                        <p className='text-2xl leading-9'>
-                            Refs is the shorthand used for references in React. It is similar to keys in React. It is an attribute which makes it possible to store a reference to particular DOM nodes or React elements. It provides a way to access React DOM nodes or React elements and how to interact with it. Example as below : <br />
-                            <img className='py-3' src="https://i.ibb.co/ZfQzBPv/useRef.png" alt="" />
-                            <br />
-                            The hook useRef() in React returns an object that has a property current that we can access as we do with objects. This property is initialized to the passed argument in the function useRef() . The returned object will persist for the full lifetime of the component.
-                            <br /> <br />
-
-                            The hook useRef() accepts one argument, which is the value to initialize the property current in the returned object.
-                        </p>
+                    <p tabIndex={0} className="px-8">
+              <strong className="text-2xl font-bold italic font-mono">
+                Express.js:
+              </strong>
+              <br />
+              Express.js is a popular web application framework for Node.js. It
+              provides a simple and flexible way to build web applications and
+              APIs by extending the capabilities of Node.js. Express.js follows
+              the minimalist philosophy and offers a lightweight, unopinionated
+              approach, allowing developers to have more control over their
+              applications structure and design choices.
+              <br />
+              <br />
+              Some key features and characteristics of Express.js include:
+              <br />
+              <br />
+              <ul className="list-disc list-inside mt-2 ml-6">
+                <li>Minimal and unopinionated framework</li>
+                <li>Extensible middleware architecture</li>
+                <li>
+                  Routing system for defining routes and handling HTTP requests
+                </li>
+                <li>Support for template engines to generate dynamic HTML</li>
+                <li>
+                  Integration with various third-party libraries and frameworks
+                </li>
+                <li>Wide community support and extensive ecosystem</li>
+              </ul>
+              <br />
+              Express.js is commonly used for building web servers, RESTful
+              APIs, and single-page applications. It provides a flexible
+              foundation for developing server-side applications using
+              JavaScript and Node.js.
+              <br />
+              <br />
+              <strong className="text-2xl font-bold italic font-mono">
+                Nest.js:
+              </strong>
+              <br />
+              Nest.js is a progressive and opinionated web application framework
+              for Node.js, inspired by Angular. It combines elements of
+              object-oriented programming, functional programming, and
+              functional reactive programming to provide a robust and scalable
+              architecture for building server-side applications. Nest.js uses
+              TypeScript as its primary language and leverages decorators and
+              metadata to define modules, controllers, and services.
+              <br />
+              <br />
+              Some key features and characteristics of Nest.js include:
+              <br />
+              <br />
+              <ul className="list-disc list-inside mt-2 ml-6">
+                <li>Modular and scalable architecture</li>
+                <li>Strongly-typed with TypeScript</li>
+                <li>Dependency injection and inversion of control</li>
+                <li>
+                  Decorators for defining modules, controllers, and services
+                </li>
+                <li>
+                  Middleware and interceptors for request/response processing
+                </li>
+                <li>Support for GraphQL, WebSockets, and microservices</li>
+              </ul>
+              <br />
+              Nest.js focuses on developer productivity, maintainability, and
+              scalability. It provides a structured and organized approach for
+              building enterprise-grade applications while leveraging the
+              benefits of TypeScript and the Node.js ecosystem.
+            </p>
                     </div>
                 </div>
                 {/* What is MongoDB aggregate and how does it work? */}
                 <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
-                        What is MongoDB aggregate and how does it work?
+                    What is MongoDB aggregate and how does it work?
                     </div>
                     <div className="collapse-content bg-slate-100">
-                        <p className='text-2xl leading-9'>With the release of React 16.8, there are many useful hooks we can now use in your React applications where there is a mentionable Hooks that was introduced in 16.8 is <span className='font-bold'>useMemo</span> . This hook has the potential to improve performance in your application.The useMemo hook is needed for memoizing or caching computed results for reoccurring usage. It would help if we did not use the useMemo hook on side-effect tasks such as changing a state variable or a Virtual DOM element.</p>
+                    <p tabIndex={0} className="px-8">
+              <strong className="text-2xl font-bold italic font-mono">
+                MongoDB Aggregation:
+              </strong>
+              <br />
+              MongoDB Aggregation is a powerful framework for performing
+              advanced data processing and analysis tasks on MongoDB
+              collections. It allows you to extract insights and manipulate data
+              using a flexible and expressive pipeline-based approach. The
+              aggregation framework provides a set of operators and stages that
+              enable you to perform complex queries, transformations, and
+              aggregations on your data.
+              <br />
+              <br />
+              The aggregation pipeline in MongoDB consists of multiple stages
+              that are applied sequentially to the documents in a collection.
+              Each stage performs a specific operation on the input documents
+              and passes the results to the next stage. This allows you to
+              compose a series of operations to achieve the desired data
+              processing and aggregation tasks.
+              <br />
+              <br />
+              Some key features and concepts of MongoDB Aggregation include:
+              <br />
+              <br />
+              <ul className="list-disc list-inside mt-2 ml-6">
+                <li>
+                  Aggregation stages such as $match, $group, $project, $sort,
+                  $limit, etc.
+                </li>
+                <li>
+                  Pipeline operators for data manipulation and transformation
+                </li>
+                <li>
+                  Aggregation expressions for performing calculations and
+                  comparisons
+                </li>
+                <li>
+                  Support for joins, unions, and lookups with multiple
+                  collections
+                </li>
+                <li>
+                  Conditional branching and control flow with $cond and $switch
+                </li>
+                <li>GeoSpatial and text search capabilities</li>
+              </ul>
+              <br />
+              The MongoDB Aggregation framework is highly flexible and can
+              handle a wide range of data processing tasks. It is particularly
+              useful for performing complex aggregations, generating reports,
+              and deriving meaningful insights from large datasets.
+              <br />
+              <br />
+              By utilizing the power of the aggregation framework, you can
+              efficiently query and analyze your MongoDB data, making it a
+              valuable tool for data analysis and business intelligence
+              applications.
+            </p>
                     </div>
                 </div>
             </div>
