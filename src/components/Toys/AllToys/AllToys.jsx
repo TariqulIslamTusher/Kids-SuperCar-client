@@ -13,7 +13,7 @@ const AllToys = () => {
         const value = e.target.search.value.toUpperCase()
         console.log(useDeferredValue);
         if (value) {
-            fetch(`http://localhost:4000/products/${value}`)
+            fetch(`https://toy-market-place-server-eight.vercel.app/products/${value}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -38,7 +38,7 @@ const AllToys = () => {
         const value = e.target.value.toUpperCase()
         console.log(value);
         if (value) {
-            fetch(`http://localhost:4000/products/${value}`)
+            fetch(`https://toy-market-place-server-eight.vercel.app/products/${value}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -48,7 +48,7 @@ const AllToys = () => {
                 })
         }
         if (value.length === 0) {
-            fetch('http://localhost:4000/products')
+            fetch('https://toy-market-place-server-eight.vercel.app/products')
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -62,7 +62,7 @@ const AllToys = () => {
     const handleSort = (e) => {
         const sort = e.target.value
         if (sort === "lowPrice") {
-            fetch('http://localhost:4000/accendProducts')
+            fetch('https://toy-market-place-server-eight.vercel.app/accendProducts')
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)
@@ -70,14 +70,14 @@ const AllToys = () => {
                 })
 
         } else if (sort === 'highPrice') {
-            fetch('http://localhost:4000/deccendProducts')
+            fetch('https://toy-market-place-server-eight.vercel.app/deccendProducts')
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)
                     setSortData(data)
                 })
         } else if (sort === 'name') {
-            fetch('http://localhost:4000/nameProducts')
+            fetch('https://toy-market-place-server-eight.vercel.app/nameProducts')
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)

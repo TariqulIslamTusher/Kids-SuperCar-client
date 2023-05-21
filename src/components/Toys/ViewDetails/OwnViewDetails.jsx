@@ -5,22 +5,25 @@ import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Tooltip } from 'react-tooltip';
 import useTitle from '../../UseHooks/UseTitle';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import AuthProvider, { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const OwnViewDetails = () => {
     useTitle('View My Added Products')
     const { id } = useParams()
     const [singleData, setSingleData] = useState('')
+    // const {singleData, setSingleData} = AuthProvider(AuthContext)
+    const [change , setChange] =useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:4000/products/${id}`)
+        fetch(`https://toy-market-place-server-eight.vercel.app/products/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setSingleData(data)
+                setChange(true)
             })
-    }, [])
+    }, [change])
 
     console.log(singleData, id);
     const { _id, toyName, subCategory, sellerName, sellerEmail, rating, price, photoURL, description, category, availableQty } = singleData
@@ -38,7 +41,7 @@ const OwnViewDetails = () => {
             price, qty, description, _id
         }
 
-        fetch(`http://localhost:4000/products/${_id}`, {
+        fetch(`https://toy-market-place-server-eight.vercel.app/products/${_id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"
@@ -48,7 +51,7 @@ const OwnViewDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-
+                setChange(false)
                 Swal.fire({
                     title: 'Success!',
                     text: 'Items Updated',

@@ -11,7 +11,7 @@ const MyToys = () => {
     const handleSort = (e) => {
         const sort = e.target.value
         if (sort === "lowPrice") {
-            fetch(`http://localhost:4000/addedProductsAccend?email=${user?.email}`)
+            fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsAccend?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)
@@ -19,14 +19,14 @@ const MyToys = () => {
                 })
 
         } else if (sort === 'highPrice') {
-            fetch(`http://localhost:4000/addedProductsDeccend?email=${user?.email}`)
+            fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsDeccend?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)
                     setSortData(data)
                 })
         } else if (sort === 'name') {
-            fetch(`http://localhost:4000/addedProductsName?email=${user?.email}`)
+            fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsName?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)

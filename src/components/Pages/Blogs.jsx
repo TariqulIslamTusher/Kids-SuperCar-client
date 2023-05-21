@@ -7,13 +7,13 @@ const Blogs = () => {
     return (
         <div>
 
-            <div className='bg-slate-50 grid gap-4 pb-6'>
+            <div className='bg-slate-200 grid gap-4 pb-6'>
                 <div className='text-center'>
                     <h1 className='py-8 font-bold animate-pulse  w-10/12 mx-auto text-7xl'>Question & Answer</h1>
 
                 </div>
                 {/* Context api */}
-                <div className="collapse md:w-6/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
+                <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
                         When do we use Context API?
@@ -25,7 +25,7 @@ const Blogs = () => {
                     </div>
                 </div>
                 {/* What is custom hook */}
-                <div className="collapse md:w-6/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
+                <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
                         What is custom hook?
@@ -48,7 +48,7 @@ const Blogs = () => {
                     </div>
                 </div>
                 {/* What does it mean by useRef? */}
-                <div className="collapse md:w-6/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
+                <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
                         What does it mean by useRef?
@@ -66,7 +66,7 @@ const Blogs = () => {
                     </div>
                 </div>
                 {/* What does it mean by useMemo? */}
-                <div className="collapse md:w-6/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
+                <div className="collapse md:w-9/12 container mx-auto bg-white rounded-xl px-3 py-4 shadow-xl">
                     <input type="checkbox" />
                     <div className="collapse-title text-3xl font-medium">
                         What does it mean by useMemo?

@@ -21,7 +21,7 @@ const HomeTab = () => {
     console.log(category);
 
     useEffect(()=>{
-      fetch(`http://localhost:4000/products?category=${category}`)
+      fetch(`https://toy-market-place-server-eight.vercel.app/products?category=${category}`)
       .then(res=>res.json())
       .then(data=>{
         console.log(data)
