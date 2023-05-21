@@ -16,6 +16,7 @@
 
 #### Join OUR OFFLINE SHOP AT BANANI-125, DHAKA, BANGLADESH!
 
+<!-- -(https://img.shields.io/badge/My_JobField_Project-000?style=for-the-badge&logo=ko-fi&logoColor=white) -->
 
 ## 🔗 Links
-[![Live Link of my Project:](https://img.shields.io/badge/My_JobField_Project-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://toy-marketplace-client-55021.web.app/)
+[![Live Link of my Project:]](https://toy-marketplace-client-55021.web.app/)
