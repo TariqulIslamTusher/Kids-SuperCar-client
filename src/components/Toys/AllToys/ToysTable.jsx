@@ -79,7 +79,7 @@ const ToysTable = ({sortData}) => {
            
            
             {
-                products.length > 10 ?
+                products.length > 20 ?
                     <div className='w-full my-2 text-right'>
                         {
                             limit ? <button className='btn' onClick={() => setLimit(0)}>Show More</button> : <button className='btn' onClick={() => setLimit(1)}>Show Less</button>

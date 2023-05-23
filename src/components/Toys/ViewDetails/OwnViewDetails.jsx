@@ -19,13 +19,13 @@ const OwnViewDetails = () => {
         fetch(`https://toy-market-place-server-eight.vercel.app/products/${id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+               // console.log(data);
                 setSingleData(data)
                 setChange(true)
             })
     }, [change])
 
-    console.log(singleData, id);
+   // console.log(singleData, id);
     const { _id, toyName, subCategory, sellerName, sellerEmail, rating, price, photoURL, description, category, availableQty } = singleData
 
 
@@ -50,7 +50,7 @@ const OwnViewDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+               // console.log(data);
                 setChange(false)
                 Swal.fire({
                     title: 'Success!',

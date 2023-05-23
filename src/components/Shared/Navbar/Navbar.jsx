@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import logo from '../../../assets/toyCarLogo.png'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { AuthContext } from '../../AuthProvider/AuthProvider';
@@ -27,14 +27,31 @@ const Navbar = () => {
 
                 <div className="dropdown dropdown-end hidden lg:block">
                     <ul tabIndex={0} className="flex gap-5 items-center font-bold ">
-                       <Link> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Home</li></Link>
-                       <Link to='/blog'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Blogs</li></Link>
-                       <Link to='/allToys'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>All Toys</li></Link>
-                        {user ? 
-                        <>
-                           <Link to='/myToys'> <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>My Toys</li></Link>
-                            <Link to='/addToys'><li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Add Toys</li></Link>
-                        </> : ''}
+
+                        <NavLink className={({ isActive, isPending }) =>
+                         isPending ? "pending" : isActive ? "active" : ""} to='/'>
+                             <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Home</li></NavLink>
+
+
+                        <NavLink className={({ isActive, isPending }) =>
+                         isPending ? "pending" : isActive ? "active" : ""} to='/blog'>
+                             <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Blogs</li></NavLink>
+                        <NavLink className={({ isActive, isPending }) =>
+                         isPending ? "pending" : isActive ? "active" : ""} to='/allToys'>
+                             <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>All Toys</li></NavLink>
+                        {user ?
+                            <>
+                                <NavLink className={({ isActive, isPending }) =>
+                                 isPending ? "pending" : isActive ? "active" : ""} 
+                                 to='/myToys'> 
+                                 <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>My Toys</li>
+                                 </NavLink>
+                                <NavLink className={({ isActive, isPending }) =>
+                                 isPending ? "pending" : isActive ? "active" : ""} 
+                                 to='/addToys'>
+                                    <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>Add Toys</li>
+                                    </NavLink>
+                            </> : ''}
                         <li className='hover:border-b-2 border-cyan-800 pb-2 transition-all duration-200'>
                             {user ?
                                 <button className='btn btn-primary w-full' onClick={handleLogOut}>LogOut</button> :

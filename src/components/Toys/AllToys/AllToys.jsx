@@ -11,12 +11,12 @@ const AllToys = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const value = e.target.search.value.toUpperCase()
-        console.log(value);
+       // console.log(value);
         if (value) {
             fetch(`https://toy-market-place-server-eight.vercel.app/productsByName?toyName=${value}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                   // console.log(data)
                     if (data.length > 0) {
                         setSortData(data)
                     } else {
@@ -36,12 +36,12 @@ const AllToys = () => {
 
     const searchName = (e) => {
         const value = e.target.value.toUpperCase()
-        console.log(value);
+       // console.log(value);
         if (value) {
             fetch(`https://toy-market-place-server-eight.vercel.app/productsByName?toyName=${value}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                   // console.log(data)
                     if (data.length > 0) {
                         setSortData(data)
                     }
@@ -51,7 +51,7 @@ const AllToys = () => {
             fetch('https://toy-market-place-server-eight.vercel.app/products')
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                   // console.log(data)
 
                     setSortData(data)
 
@@ -69,7 +69,7 @@ const AllToys = () => {
             fetch('https://toy-market-place-server-eight.vercel.app/accendProducts')
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                    //// console.log(data)
                     setSortData(data)
                 })
 
@@ -77,14 +77,14 @@ const AllToys = () => {
             fetch('https://toy-market-place-server-eight.vercel.app/deccendProducts')
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                    //// console.log(data)
                     setSortData(data)
                 })
         } else if (sort === 'name') {
             fetch('https://toy-market-place-server-eight.vercel.app/nameProducts')
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                    //// console.log(data)
                     setSortData(data)
                 })
         } else {
@@ -100,6 +100,11 @@ const AllToys = () => {
                         <input placeholder='Search by name' onChange={searchName}  name='search' className="w-full px-4 py-3 border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text" />
                         <button className='btn btn-outline rounded-l-none border-gray-400 '>Search</button>
                     </form>
+
+                    {/* <div>
+                        <h2 className="heading-text text-2xl md:text-5xl">All Data Added By User</h2>
+                    </div> */}
+
                     <div>
                         <select
                             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"

@@ -16,16 +16,16 @@ const HomeTab = () => {
   } else if (tabIndex === 2) {
     category = "Car"
   } else {
-    console.log(category);
+   // console.log(category);
   }
 
-  console.log(category);
+ // console.log(category);
 
   useEffect(() => {
     fetch(`https://toy-market-place-server-eight.vercel.app/category?category=${category}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+       // console.log(data)
         setCatData(data)
       })
   }, [tabIndex])
@@ -37,15 +37,15 @@ const HomeTab = () => {
   return (
     <div className='container mx-auto '>
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-      <TabList>
-        <Tab>Title 1</Tab>
-        <Tab>Title 2</Tab>
-        <Tab>Title 3</Tab>
+      <TabList className='text-xl font-bold px-6 py-2'>
+        <Tab>Buses</Tab>
+        <Tab>Trucks</Tab>
+        <Tab>Cars</Tab>
       </TabList>
 
-      <TabPanel> <div className='grid grid-cols-1 md:grid-cols-3'>{catData.slice(0, 3).map(data => <Category data={data}></Category>)}</div></TabPanel>
-      <TabPanel> <div className='grid grid-cols-1 md:grid-cols-3'>{catData.slice(0, 3).map(data => <Category data={data}></Category>)}</div></TabPanel>
-      <TabPanel> <div className='grid grid-cols-1 md:grid-cols-3'>{catData.slice(0, 3).map(data => <Category data={data}></Category>)}</div></TabPanel>
+      <TabPanel> <div className='grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 items-stretch'>{catData.slice(0, 3).map(data => <Category data={data}></Category>)}</div></TabPanel>
+      <TabPanel> <div className='grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 items-stretch'>{catData.slice(0, 3).map(data => <Category data={data}></Category>)}</div></TabPanel>
+      <TabPanel> <div className='grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 items-stretch'>{catData.slice(0, 3).map(data => <Category data={data}></Category>)}</div></TabPanel>
     </Tabs>
     </div>
   );

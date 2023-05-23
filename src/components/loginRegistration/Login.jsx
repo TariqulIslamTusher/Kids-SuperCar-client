@@ -81,7 +81,7 @@ const Login = () => {
             .catch(err => {
                 setRootError(err.message)
                 toast.error(rootErr)
-                console.log(err.message)
+               // console.log(err.message)
             })
     }
 

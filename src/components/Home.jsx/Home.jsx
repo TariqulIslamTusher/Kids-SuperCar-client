@@ -16,6 +16,7 @@ const Home = () => {
     useTitle('Home')
     return (
         <div id='home' className='bg-slate-200'>
+            
             <HomeBanner></HomeBanner>
             <Marquee pauseOnHover speed={100} className='bg-orange-100 py-5'>
                 <h3 className="text-xl font-mono">** Update: Our All Outlet are giving <span className='text-red-700 font-bold'>Discount</span> up to 60%</h3>
@@ -27,7 +28,7 @@ const Home = () => {
                 <HomeGalary></HomeGalary>
             </div>
             <div >
-                <div data-aos='slide-left'>
+                <div>
                     <OurLet ></OurLet>
                 </div>
                 <div data-aos='slide-right'>
@@ -35,9 +36,6 @@ const Home = () => {
                 </div>
                 <div data-aos='slide-left'>
                     <SuccessStory></SuccessStory>
-                </div>
-                <div className='absolute bottom-8 right-7 animate-ping'  data-aos="slide-up">
-                    <a href="#home"> <button className='btn btn-outline rounded-full'><FaLongArrowAltUp></FaLongArrowAltUp></button></a>
                 </div>
             </div>
         </div>

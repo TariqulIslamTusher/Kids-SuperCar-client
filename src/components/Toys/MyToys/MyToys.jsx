@@ -14,7 +14,7 @@ const MyToys = () => {
             fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsAccend?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                    //// console.log(data)
                     setSortData(data)
                 })
 
@@ -22,14 +22,14 @@ const MyToys = () => {
             fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsDeccend?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                    //// console.log(data)
                     setSortData(data)
                 })
         } else if (sort === 'name') {
             fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsName?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
-                    // console.log(data)
+                    //// console.log(data)
                     setSortData(data)
                 })
         } else {
@@ -47,7 +47,6 @@ const MyToys = () => {
     return (
        <div className="bg-slate-200 py-7">
          <div className='container mx-auto'>
-            <h1 className='heading-text'>MY Added Toys</h1>
             <div className='flex flex-col md:flex-row gap-5 justify-end items-center pb-3'>
                     {/* <form onSubmit={handleSubmit} className='flex items-center'>
                         <input placeholder='Search by name' className="w-full px-4 py-3 border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text" />

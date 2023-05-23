@@ -1,9 +1,11 @@
 import React from 'react';
 import logo from '../../../assets/toyCarLogo.png'
+import { FaLongArrowAltUp } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-neutral text-neutral-content container mx-auto">
+        <footer className="footer p-10 bg-neutral text-neutral-content container mx-auto ">
+            
             <div>
                 <span>
                     <img className='w-32' src={logo} alt="Car Logo" />

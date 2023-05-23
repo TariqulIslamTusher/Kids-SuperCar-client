@@ -6,8 +6,8 @@ const Category = ({ data }) => {
     const { category, toyName, sellerName, price, rating, availableQty, photoURL, description } = data
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl rounded-xl hover:-translate-y-7 transition-all duration-300">
-                <figure><img src={photoURL} alt="ProductPhoto" /></figure>
+            <div className="card items-stretch bg-base-100 shadow-xl rounded-xl hover:scale-105 transition-all duration-300">
+                <figure><img className='h-72 object-cover object-center' src={photoURL} alt="ProductPhoto" /></figure>
 
 
                 <div className="card-body bg-gradient-to-br from-amber-100 to-slate-50">
@@ -17,18 +17,20 @@ const Category = ({ data }) => {
                     <div className='text-left'>
 
 
-                        <p className="text-lg divide-y-2">{sellerName}</p>
+                        <p className="text-lg divide-y-2">Seller: {sellerName}</p>
                         <p className="text-lg divide-y-2">Category :{category}</p>
 
                         <p>Price : {price}</p>
                         <p>Quantity : {availableQty}</p>
-                        <p className="text-lg divide-y-4">{description}</p>
+
+
+                        <p className="text-lg border-y-2">{description}</p>
                     </div>
-                    <div className='flex items-center justify-between flex-1'>
+                    <div className='flex flex-col md:flex-row text-center items-center md:justify-between flex-1'>
                         <p className='font-semibold text-left text-xl'>Ratings: {rating}</p>
                         
                         <Rating
-                            className='text-2xl text-yellow-500 ml-auto'
+                            className='text-2xl text-yellow-500 md:ml-auto'
                             placeholderRating={rating}
                             readonly
                             emptySymbol={<FaRegStar></FaRegStar>}

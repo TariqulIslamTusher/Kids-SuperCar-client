@@ -69,7 +69,7 @@ const AddToys = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+               // console.log(data)
                 Swal.fire({
                     title: 'Success!',
                     text: 'User Added',
@@ -107,6 +107,7 @@ const AddToys = () => {
                                 id="toyName"
                                 name="toyName"
                                 required
+                                placeholder='Toy Name'
                             />
                         </div>
 
@@ -197,7 +198,7 @@ const AddToys = () => {
 
                                     <option value="Sports">Sports Car</option>
                                     <option value="PrivateCar">Private Car</option>
-                                    <option value="Micro">Micro</option>
+                                    <option value="Jeep">Jeep</option>
                                 </select>
                             </div>
                         </> : ''}
@@ -236,6 +237,7 @@ const AddToys = () => {
                             id="photoURL"
                             name="photoURL"
                             required
+                            placeholder='https:imbb/link/image:id'
 
                         />
                     </div>
@@ -250,6 +252,7 @@ const AddToys = () => {
                                 id="price"
                                 name="price"
                                 required
+                                 placeholder='Toy Price'
                             />
                         </div>
 
@@ -264,6 +267,7 @@ const AddToys = () => {
                                 id="rating"
                                 name="rating"
                                 required
+                                placeholder='Rate out of 5'
 
                             />
                         </div>
@@ -278,6 +282,7 @@ const AddToys = () => {
                                 id="availableQty"
                                 name="availableQty"
                                 required
+                                placeholder='How many do you have?'
 
                             />
                         </div>
@@ -294,6 +299,7 @@ const AddToys = () => {
                             id="description"
                             name="description"
                             required
+                            placeholder='Your Opinion'
 
                         ></textarea>
                     </div>

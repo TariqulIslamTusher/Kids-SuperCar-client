@@ -90,7 +90,7 @@ const Register = () => {
                         toast.success('success')
                     })
                     .catch((error) => {
-                        console.log(error.message);
+                       // console.log(error.message);
                         setRootError(error.message);
                     });
                 setUser(loggedUser);
