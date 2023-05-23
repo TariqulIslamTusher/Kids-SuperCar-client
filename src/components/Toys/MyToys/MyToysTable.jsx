@@ -9,7 +9,7 @@ const MyToysTable = ({sortData}) => {
     const [limit, setLimit] = useState(1)
     const [products, setProducts] = useState([])
 
-    const url = `https://toy-market-place-server-eight.vercel.app/addedProducts?email=${user?.email}`
+    const url = `http://localhost:4000/addedProducts?email=${user?.email}`
 
     useEffect(() => {
         fetch(url)
@@ -41,7 +41,7 @@ const MyToysTable = ({sortData}) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://toy-market-place-server-eight.vercel.app/products/${id}`, {
+                fetch(`http://localhost:4000/products/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

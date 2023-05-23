@@ -22,7 +22,7 @@ const HomeTab = () => {
  // console.log(category);
 
   useEffect(() => {
-    fetch(`https://toy-market-place-server-eight.vercel.app/category?category=${category}`)
+    fetch(`http://localhost:4000/category?category=${category}`)
       .then(res => res.json())
       .then(data => {
        // console.log(data)

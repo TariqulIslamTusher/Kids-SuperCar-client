@@ -11,12 +11,12 @@ const AllToys = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const value = e.target.search.value.toUpperCase()
-       // console.log(value);
+        // console.log(value);
         if (value) {
-            fetch(`https://toy-market-place-server-eight.vercel.app/productsByName?toyName=${value}`)
+            fetch(`http://localhost:4000/productsByName?toyName=${value}`)
                 .then(res => res.json())
                 .then(data => {
-                   // console.log(data)
+                    // console.log(data)
                     if (data.length > 0) {
                         setSortData(data)
                     } else {
@@ -36,22 +36,22 @@ const AllToys = () => {
 
     const searchName = (e) => {
         const value = e.target.value.toUpperCase()
-       // console.log(value);
+        // console.log(value);
         if (value) {
-            fetch(`https://toy-market-place-server-eight.vercel.app/productsByName?toyName=${value}`)
+            fetch(`http://localhost:4000/productsByName?toyName=${value}`)
                 .then(res => res.json())
                 .then(data => {
-                   // console.log(data)
+                    // console.log(data)
                     if (data.length > 0) {
                         setSortData(data)
                     }
                 })
         }
         if (value.length === 0) {
-            fetch('https://toy-market-place-server-eight.vercel.app/products')
+            fetch('http://localhost:4000/products')
                 .then(res => res.json())
                 .then(data => {
-                   // console.log(data)
+                    // console.log(data)
 
                     setSortData(data)
 
@@ -60,44 +60,56 @@ const AllToys = () => {
     }
 
 
+    // standart system of sorting where you can sort multiple data in one fetch
+    //  in the server we declare a query as {} if we fetch with email the query will be email: email unless it will give the all data and same as the sorting
+
+    const handleSort = (e) => {
+        const sort = e.target.value
+        fetch(`http://localhost:4000/dayna?sort=${sort}`)
+            .then(res => res.json())
+            .then(data => {
+                //// console.log(data)
+                setSortData(data)
+            })
+    }
 
 
     // sorting the product by lower price and upper price and name
-    const handleSort = (e) => {
-        const sort = e.target.value
-        if (sort === "lowPrice") {
-            fetch('https://toy-market-place-server-eight.vercel.app/accendProducts')
-                .then(res => res.json())
-                .then(data => {
-                    //// console.log(data)
-                    setSortData(data)
-                })
+    // const handleSort = (e) => {
+    //     const sort = e.target.value
+    //     if (sort === "lowPrice") {
+    //         fetch('http://localhost:4000/accendProducts')
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 //// console.log(data)
+    //                 setSortData(data)
+    //             })
 
-        } else if (sort === 'highPrice') {
-            fetch('https://toy-market-place-server-eight.vercel.app/deccendProducts')
-                .then(res => res.json())
-                .then(data => {
-                    //// console.log(data)
-                    setSortData(data)
-                })
-        } else if (sort === 'name') {
-            fetch('https://toy-market-place-server-eight.vercel.app/nameProducts')
-                .then(res => res.json())
-                .then(data => {
-                    //// console.log(data)
-                    setSortData(data)
-                })
-        } else {
-            setSortData("")
-        }
-    }
+    //     } else if (sort === 'highPrice') {
+    //         fetch('http://localhost:4000/deccendProducts')
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 //// console.log(data)
+    //                 setSortData(data)
+    //             })
+    //     } else if (sort === 'name') {
+    //         fetch('http://localhost:4000/nameProducts')
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 //// console.log(data)
+    //                 setSortData(data)
+    //             })
+    //     } else {
+    //         setSortData("")
+    //     }
+    // }
 
     return (
         <div className="bg-slate-200 py-6">
             <div className='container mx-auto'>
                 <div className='flex flex-col md:flex-row gap-5 justify-between items-center py-7'>
                     <form onSubmit={handleSubmit} className='flex items-center'>
-                        <input placeholder='Search by name' onChange={searchName}  name='search' className="w-full px-4 py-3 border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text" />
+                        <input placeholder='Search by name' onChange={searchName} name='search' className="w-full px-4 py-3 border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text" />
                         <button className='btn btn-outline rounded-l-none border-gray-400 '>Search</button>
                     </form>
 
