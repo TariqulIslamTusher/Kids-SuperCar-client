@@ -14,7 +14,7 @@ const MyToys = () => {
     // const handleSort = (e) => {
     //     const sort = e.target.value
     //     if (sort === "lowPrice") {
-    //         fetch(`http://localhost:4000/addedProductsAccend?email=${user?.email}`)
+    //         fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsAccend?email=${user?.email}`)
     //             .then(res => res.json())
     //             .then(data => {
     //                 //// console.log(data)
@@ -22,14 +22,14 @@ const MyToys = () => {
     //             })
 
     //     } else if (sort === 'highPrice') {
-    //         fetch(`http://localhost:4000/addedProductsDeccend?email=${user?.email}`)
+    //         fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsDeccend?email=${user?.email}`)
     //             .then(res => res.json())
     //             .then(data => {
     //                 //// console.log(data)
     //                 setSortData(data)
     //             })
     //     } else if (sort === 'name') {
-    //         fetch(`http://localhost:4000/addedProductsName?email=${user?.email}`)
+    //         fetch(`https://toy-market-place-server-eight.vercel.app/addedProductsName?email=${user?.email}`)
     //             .then(res => res.json())
     //             .then(data => {
     //                 //// console.log(data)
@@ -41,10 +41,11 @@ const MyToys = () => {
     // }
 
 
+
     // Standard procedure of sorting, here we sorted 3data only in one fetch
     const handleSort = (e) => {
         let sort = e.target.value
-        fetch(`http://localhost:4000/dayna?email=${user?.email}&sort=${sort}`)
+        fetch(`https://toy-market-place-server-eight.vercel.app/products?email=${user?.email}&sort=${sort}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -55,15 +56,26 @@ const MyToys = () => {
     
     const handleSubmit = (e) =>{
         e.preventDefault()
-        const search = e.target.search.value
-        // console.log(search);
-        // inputRef.current.focus();
-        // console.log(inputRef.current.value);
-    }
-
-    const refSearch = () =>{
         const value = inputRef.current.value 
-        fetch('')
+        console.log(value);
+        fetch(`https://toy-market-place-server-eight.vercel.app/products?email=${user?.email}&search=${value}`)
+            .then(res => res.json())
+            .then(data =>{
+                console.log(data)
+                setSortData(data)
+            })
+
+    }
+    // both using search by useRef and e.target.value 
+    const onchange = (e) =>{
+        const value = e.target.value
+        console.log(value);
+        fetch(`https://toy-market-place-server-eight.vercel.app/products?email=${user?.email}&search=${value}`)
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+            setSortData(data)
+        })
     }
     
  
@@ -73,9 +85,9 @@ const MyToys = () => {
        <div className="bg-slate-200 py-7">
          <div className='container mx-auto'>
             <div className='flex flex-col md:flex-row gap-5 justify-end items-center pb-3'>
-                    <form onSubmit={handleSubmit} className='flex items-center'>
-                        <input onChange={refSearch} ref={inputRef} placeholder='Search by name' name='search' className="w-full px-4 py-3 border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text" />
-                        <button  className='btn btn-outline rounded-l-none border-gray-400 '>Search</button>
+                    <form onSubmit={handleSubmit} className='flex items-center md:mr-auto'>
+                        <input onChange={onchange} ref={inputRef} placeholder='Search by name' name='search' className="w-full px-4 py-3 border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text" />
+                        <button className='btn btn-outline rounded-l-none border-gray-400 '>Search</button>
                     </form>
                     <div>
                         <select

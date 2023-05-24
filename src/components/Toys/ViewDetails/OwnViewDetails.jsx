@@ -16,7 +16,7 @@ const OwnViewDetails = () => {
     const [change , setChange] =useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:4000/products/${id}`)
+        fetch(`https://toy-market-place-server-eight.vercel.app/products/${id}`)
             .then(res => res.json())
             .then(data => {
                // console.log(data);
@@ -41,7 +41,7 @@ const OwnViewDetails = () => {
             price, qty, description, _id
         }
 
-        fetch(`http://localhost:4000/products/${_id}`, {
+        fetch(`https://toy-market-place-server-eight.vercel.app/products/${_id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"

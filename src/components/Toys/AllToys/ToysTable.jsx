@@ -11,7 +11,7 @@ const ToysTable = ({sortData}) => {
     let [products, setProducts] = useState('')
 
     useEffect(() => {
-        fetch('http://localhost:4000/products')
+        fetch('https://toy-market-place-server-eight.vercel.app/products')
             .then(res => res.json())
             .then(data => {
                 if(sortData){
