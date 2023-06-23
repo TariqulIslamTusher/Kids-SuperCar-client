@@ -4,6 +4,8 @@ import Footer from '../Shared/Footer/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 
 const MainOutlet = () => {
+
+    
     return (
         <div>
             <div className='shadow-xl'>

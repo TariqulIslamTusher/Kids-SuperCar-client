@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import logo from '../../../assets/toyCarLogo.png'
 import { Link, NavLink } from 'react-router-dom';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
@@ -16,7 +15,7 @@ const Navbar = () => {
         <div className="navbar justify-between bg-base-100 container mx-auto">
             <div className="flex flex-1 items-center gap-2">
                 <Link to='/'>
-                    <img className='w-20' src={logo} alt="Web site logo" />
+                    <img className='w-20' alt="Web site logo" />
                 </Link>
                 <h2 className='text-lg sm:text-xl  md:text-3xl font-bold font-mono'>Kid's <span className='text-green-800'>Super</span> <span className='text-red-700'>Car</span></h2>
             </div>

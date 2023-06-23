@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .heading-text{
-    @apply text-center font-extrabold text-transparent bg-gradient-to-br from-rose-800   to-amber-500 bg-clip-text p-4
+    @apply text-center font-extrabold text-transparent bg-gradient-to-br from-rose-800 to-amber-500 bg-clip-text p-4
 
 }
 
